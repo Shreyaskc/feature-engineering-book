@@ -1,4 +1,5 @@
 """Execute exported SQL and compare values and stored identities with binding."""
+from contextlib import closing
 from dataclasses import replace
 from pathlib import Path
 import sqlite3
@@ -29,15 +30,10 @@ class ExportTests(unittest.TestCase):
             path.write_text(script, encoding="utf-8")
             self.assertEqual(run_file(path), ["NULL" if expected is None else str(expected)])
         # Equal totals alone could hide merged, truncated, or altered identities.
-        bound = connect(data, query)
-        exported = sqlite3.connect(":memory:")
-        try:
+        with closing(connect(data, query)) as bound, closing(sqlite3.connect(":memory:")) as exported:
             exported.executescript(script)
             rows = "SELECT * FROM revisions ORDER BY event_id, revision"
             self.assertEqual(exported.execute(rows).fetchall(), bound.execute(rows).fetchall())
-        finally:
-            exported.close()
-            bound.close()
         return script
 
     def test_every_parameter_token_is_preserved_inside_customer_ids(self):

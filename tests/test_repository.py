@@ -111,6 +111,29 @@ class ReviewedChapter04IdentityTests(unittest.TestCase):
             verification.reviewed_chapter04_manifest(original)
 
 
+    def test_ownership_update_must_follow_accepted_global_identity_hash(self):
+        original = self.historical()
+        load = verification.load
+        def altered(path):
+            value = load(path)
+            if path.name == 'RUNTIME_MANIFEST_UPDATES.json':
+                value['chapter04_sqlite_ownership']['before_source_sha256'] = '0'*64
+            return value
+        with patch.object(verification, 'load', side_effect=altered), self.assertRaisesRegex(RuntimeError, 'ownership predecessor differs'):
+            verification.reviewed_chapter04_manifest(original)
+
+    def test_unreviewed_ownership_after_hash_is_rejected(self):
+        original = self.historical()
+        load = verification.load
+        def altered(path):
+            value = load(path)
+            if path.name == 'RUNTIME_MANIFEST_UPDATES.json':
+                value['chapter04_sqlite_ownership']['after_source_sha256'] = '0'*64
+            return value
+        with patch.object(verification, 'load', side_effect=altered), self.assertRaisesRegex(RuntimeError, 'Current chapter04 source identity differs'):
+            verification.reviewed_chapter04_manifest(original)
+
+
 class ListingViewTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix='listing-view-tests-')

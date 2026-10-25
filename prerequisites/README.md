@@ -12,7 +12,7 @@ Expected: PASS, **12 readiness tests**, two matching clean runs, and zero chapte
 
 ## 1. Run the two book refresher examples
 
-Read the exact [Python values example](refresher-python.md) and [SQLite filtering example](refresher-sql.md) from the reader draft's “Reading the lab code” section. Their bodies are preserved in [the canonical refresher registry](book_refresher_examples.json), with the source-document content hash, version, paragraph and code hash. Generated readable views are checked against those bodies without executing them during rendering.
+Read the [Python values example](refresher-python.md) and [SQLite filtering example](refresher-sql.md) based on the reader draft's “Reading the lab code” section. The Python body is unchanged. The SQL lab body now wraps the connection in `closing(...)` while retaining the inner transaction context; the original book paragraph 2032 needs the same ownership correction. The [canonical refresher registry](book_refresher_examples.json) retains original source provenance and code hash alongside the corrected SQL hash. Generated views are checked against the current canonical bodies without executing them during rendering.
 
 The Python example prints:
 
@@ -53,7 +53,7 @@ The [tests](test_readiness_lab.py) test each boundary and a few deliberately wro
 
 ## 6. Preview two SQL mistakes
 
-`sql_example` is an additional preview, separate from the preserved book SQL refresher. Joining two C1 decisions to two C1 feature rows by customer produces **four rows**. Joining by decision identity produces **two**: D1=50 and D2=95. Chapter 4 explains the full row-grain and label contracts.
+`sql_example` is an additional preview, separate from the SQL filtering refresher. Joining two C1 decisions to two C1 feature rows by customer produces **four rows**. Joining by decision identity produces **two**: D1=50 and D2=95. Chapter 4 explains the full row-grain and label contracts.
 
 The revision preview keeps `[540,600)` fixed. At cutoff 600, filter availability **before** ranking the greatest revision per event: the answer is **50**. Ranking first hides eligible C1 behind unavailable C2 and incorrectly gives **20**. At cutoff 610, the fixed-window answer is **85**. This is not D2's rolling `[550,610)` value of 95. Chapter 3 adds the full corrected-event selection contract.
 

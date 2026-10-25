@@ -1,6 +1,7 @@
 """Small, offline reading exercises before Chapter 1. No output files are written."""
 from __future__ import annotations
 
+from contextlib import closing
 from dataclasses import FrozenInstanceError, dataclass, replace
 from hashlib import sha256
 import json
@@ -18,7 +19,7 @@ def fixture():
 
 
 def book_examples():
-    """Run the two preserved book examples in fresh Python processes."""
+    """Run the two book refreshers, including reviewed lab corrections."""
     results = {}
     for item in json.loads((ROOT/'book_refresher_examples.json').read_text()):
         if sha256(item['code'].encode()).hexdigest() != item['code_sha256']:
@@ -79,8 +80,8 @@ def boundary_example(data):
 
 
 def sql_example(data):
-    """Two small previews; the unchanged SQL refresher above has one version/event."""
-    with sqlite3.connect(':memory:') as db:
+    """Two small previews; the separate SQL refresher has one version/event."""
+    with closing(sqlite3.connect(':memory:')) as db, db:
         db.execute('CREATE TABLE decisions(id TEXT, customer TEXT, time INT)')
         db.execute('CREATE TABLE features(decision_id TEXT, customer TEXT, value INT)')
         db.executemany('INSERT INTO decisions VALUES (?,?,?)',data['decisions'])

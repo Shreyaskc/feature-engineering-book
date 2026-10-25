@@ -102,7 +102,9 @@ def check_views(root):
 
 
 def render_refresher(item):
-    return (f'# {item["title"]}\n\nGenerated readable view of the unchanged book refresher.\n\n'
+    description = ('Generated readable view of the corrected lab refresher; the original book paragraph needs the same ownership correction.'
+                   if item.get('lab_revision') else 'Generated readable view of the unchanged book refresher.')
+    return (f'# {item["title"]}\n\n{description}\n\n'
             f'ID: `{item["id"]}`. Source: reader draft version {item["source_version"]}, '
             f'paragraph {item["source_paragraph"]}, {item["source_book_section"]}.\n\n'
             'Canonical source: [book_refresher_examples.json](book_refresher_examples.json). '

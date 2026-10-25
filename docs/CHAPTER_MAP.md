@@ -1,6 +1,6 @@
 # Chapter to code map
 
-Before Chapter 1, complete the [beginner readiness lab](../prerequisites/README.md) with `.venv/bin/python -B verify_all.py --prerequisites-only`. Its [machine-readable setup/refresher map](prerequisite-map.json) links the two original book refresher views. It is separate from the nine chapter suites.
+Before Chapter 1, complete the [beginner readiness lab](../prerequisites/README.md) with `.venv/bin/python -B verify_all.py --prerequisites-only`. Its [machine-readable setup/refresher map](prerequisite-map.json) links the two book refresher views, including the recorded SQL ownership correction. It is separate from the nine chapter suites.
 
 Read in chapter order. Chapters 1 and 2 share one suite; later lessons are self-contained snapshots of cumulative concepts, not mutations of one shared database. Run commands from the repository root with `.venv/bin/python -B verify_all.py` followed by the argument below. Every mapped command is exercised by the full Mac check; Chapter 02 is also verified as an alias.
 

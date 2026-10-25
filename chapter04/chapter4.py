@@ -2,6 +2,7 @@
 All times are integer minutes from one fictional epoch, in UTC.
 This is a small reference calculation, not a production service.
 """
+from contextlib import closing
 from dataclasses import dataclass, asdict
 from statistics import mean
 import json
@@ -187,17 +188,16 @@ ORDER BY d.decision_id'''
 
 
 def join_demo():
-    con = sqlite3.connect(':memory:')
-    con.executescript('''CREATE TABLE decisions (
-      decision_id TEXT PRIMARY KEY NOT NULL, customer TEXT NOT NULL);
-    CREATE TABLE features (decision_id TEXT PRIMARY KEY NOT NULL,
-      customer TEXT NOT NULL, spend INTEGER);
-    INSERT INTO decisions VALUES ('D1','C1'),('D2','C1');
-    INSERT INTO features VALUES ('D1','C1',50),('D2','C1',95);''')
-    bad = con.execute(JOIN_BAD).fetchall()
-    good = con.execute(JOIN_GOOD).fetchall()
-    con.close()
-    return bad, good
+    with closing(sqlite3.connect(':memory:')) as con:
+        con.executescript('''CREATE TABLE decisions (
+          decision_id TEXT PRIMARY KEY NOT NULL, customer TEXT NOT NULL);
+        CREATE TABLE features (decision_id TEXT PRIMARY KEY NOT NULL,
+          customer TEXT NOT NULL, spend INTEGER);
+        INSERT INTO decisions VALUES ('D1','C1'),('D2','C1');
+        INSERT INTO features VALUES ('D1','C1',50),('D2','C1',95);''')
+        bad = con.execute(JOIN_BAD).fetchall()
+        good = con.execute(JOIN_GOOD).fetchall()
+        return bad, good
 
 
 def main():

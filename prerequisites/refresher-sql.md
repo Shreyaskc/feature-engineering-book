@@ -1,6 +1,6 @@
 # SQL filtering before aggregation
 
-Generated readable view of the unchanged book refresher.
+Generated readable view of the corrected lab refresher; the original book paragraph needs the same ownership correction.
 
 ID: `refresher_sql_filtering`. Source: reader draft version 2, paragraph 2032, Reading the lab code / SQL filtering before aggregation.
 
@@ -8,7 +8,8 @@ Canonical source: [book_refresher_examples.json](book_refresher_examples.json). 
 
 ```python
 import sqlite3
-with sqlite3.connect(":memory:") as db:
+from contextlib import closing
+with closing(sqlite3.connect(":memory:")) as db, db:
     db.execute("CREATE TABLE e(t INT, a INT, amount INT)")
     db.executemany("INSERT INTO e VALUES (?, ?, ?)",
         [(550, 551, 20), (575, 607, 40), (585, 586, 30)])

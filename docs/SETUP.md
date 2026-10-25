@@ -38,7 +38,7 @@ Complete the [readiness lab](../prerequisites/README.md) before Chapter 1:
 .venv/bin/python -B verify_all.py --prerequisites-only
 ```
 
-Expect 12 readiness tests, the two unchanged book refresher examples, matching expected/observed JSON and two clean runs. This is distinct from the machine readiness check. It covers None/zero/False, immutable records, time/window boundaries, fixtures/assertions, and small SQL join/ranking previews. Its [source-view map](prerequisite-map.json) is for the book editor.
+Expect 12 readiness tests, the two book refresher examples (the SQL body includes explicit connection closure), matching expected/observed JSON and two clean runs. This is distinct from the machine readiness check. It covers None/zero/False, immutable records, time/window boundaries, fixtures/assertions, and small SQL join/ranking previews. Its [source-view map](prerequisite-map.json) is for the book editor.
 
 ## 4. Learn progressively
 

@@ -16,13 +16,16 @@
     "id": "refresher_sql_filtering",
     "title": "SQL filtering before aggregation",
     "language": "python",
-    "code": "import sqlite3\nwith sqlite3.connect(\":memory:\") as db:\n    db.execute(\"CREATE TABLE e(t INT, a INT, amount INT)\")\n    db.executemany(\"INSERT INTO e VALUES (?, ?, ?)\",\n        [(550, 551, 20), (575, 607, 40), (585, 586, 30)])\n    value = db.execute(\n        \"SELECT SUM(amount) FROM e \"\n        \"WHERE a <= ? AND t >= ? AND t < ?\",\n        (600, 540, 600)).fetchone()[0]\n    print(value)",
+    "code": "import sqlite3\nfrom contextlib import closing\nwith closing(sqlite3.connect(\":memory:\")) as db, db:\n    db.execute(\"CREATE TABLE e(t INT, a INT, amount INT)\")\n    db.executemany(\"INSERT INTO e VALUES (?, ?, ?)\",\n        [(550, 551, 20), (575, 607, 40), (585, 586, 30)])\n    value = db.execute(\n        \"SELECT SUM(amount) FROM e \"\n        \"WHERE a <= ? AND t >= ? AND t < ?\",\n        (600, 540, 600)).fetchone()[0]\n    print(value)",
     "expected_stdout": "50\n",
-    "code_sha256": "6b98ad05090bc5b943f4788d63f8b9639fd4b4b2bbd95d6358c5f71b07d6a2e1",
+    "code_sha256": "1c0430484eb1e89bd6134130ad2ccb162183e40cc0aac5ae72c6a82c731a006f",
     "source_book_section": "Reading the lab code / SQL filtering before aggregation",
     "source_version": 2,
     "view_path": "prerequisites/refresher-sql.md",
     "source_paragraph": 2032,
-    "source_document_sha256": "f863704fdd1e65582883cad9583bdd4add9504b0b1feeebe3111d2dcad146f26"
+    "source_document_sha256": "f863704fdd1e65582883cad9583bdd4add9504b0b1feeebe3111d2dcad146f26",
+    "original_code_sha256": "6b98ad05090bc5b943f4788d63f8b9639fd4b4b2bbd95d6358c5f71b07d6a2e1",
+    "lab_revision": "deterministic-sqlite-ownership",
+    "source_alignment_note": "Original paragraph 2032 requires the same closing scope correction; stdout and transaction semantics are preserved."
   }
 ]

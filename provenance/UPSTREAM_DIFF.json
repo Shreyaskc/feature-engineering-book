@@ -2,6 +2,7 @@
   "chapter03/EXERCISES.md": "added",
   "chapter03/README.md": "added",
   "chapter03/clean_verify.py": "changed",
+  "chapter03/test_export_sql.py": "changed",
   "chapter03/verify_lab.py": "changed",
   "chapter04/README.md": "added",
   "chapter04/REVISION.json": "changed",
@@ -12,6 +13,7 @@
   "chapter05/randomized_checks.py": "changed",
   "chapter05/test_generated_sequence.py": "added",
   "chapter06/README.md": "added",
+  "chapter06/generated/manifest.json": "removed_from_active_tree_preserved_in_archive",
   "chapter06/randomized_checks.py": "changed",
   "chapter06/test_generated_oracle.py": "added",
   "chapter07/ATTRIBUTION.md": "added",
@@ -29,6 +31,5 @@
   "chapter10/environment.json": "added",
   "chapter10/verify_lab.py": "changed",
   "chapters01_02/README.md": "added",
-  "chapters01_02/verify_lab.py": "changed",
-  "chapter06/generated/manifest.json": "removed_from_active_tree_preserved_in_archive"
+  "chapters01_02/verify_lab.py": "changed"
 }

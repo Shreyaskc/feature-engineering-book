@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+from contextlib import closing
 from copy import deepcopy
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -130,7 +131,7 @@ def environment_check():
     require(platform.python_implementation() == 'CPython' and sys.version_info >= (3, 12),
             'Use CPython 3.12 or newer; see tested versions in docs/SETUP.md')
     # ROW_NUMBER is used by the independent SQL implementation.
-    with sqlite3.connect(':memory:') as db:
+    with closing(sqlite3.connect(':memory:')) as db, db:
         require(db.execute('SELECT row_number() OVER (ORDER BY x) FROM (SELECT 1 x)').fetchone() == (1,),
                 'SQLite must support window functions (3.25 or newer)')
     with tempfile.TemporaryDirectory(prefix='feature-env-') as folder:
@@ -184,15 +185,19 @@ def reviewed_chapter04_manifest(expected):
     Only the corrected identity declaration and its current source hash differ;
     dataset values, labels, splits and every other contract remain compared.
     """
-    change = load(ROOT/'provenance/RUNTIME_MANIFEST_UPDATES.json')['chapter04_global_event_identity']
+    updates = load(ROOT/'provenance/RUNTIME_MANIFEST_UPDATES.json')
+    change = updates['chapter04_global_event_identity']
     require(expected['source_sha256'] == change['before_source_sha256'] and
             expected['event_identity'] == ['customer', 'event', 'version'],
             'Historical chapter04 identity differs from reviewed baseline')
     active = load(ROOT/'provenance/LAB_FILES.json')
-    require(active['chapter04/chapter4.py'] == change['after_source_sha256'],
+    ownership = updates['chapter04_sqlite_ownership']
+    require(ownership['before_source_sha256'] == change['after_source_sha256'],
+            'Reviewed chapter04 ownership predecessor differs from accepted identity correction')
+    require(active['chapter04/chapter4.py'] == ownership['after_source_sha256'],
             'Current chapter04 source identity differs from reviewed correction')
     revised = deepcopy(expected)
-    revised['source_sha256'] = change['after_source_sha256']
+    revised['source_sha256'] = ownership['after_source_sha256']
     revised['event_identity'] = ['event', 'version']
     return revised
 

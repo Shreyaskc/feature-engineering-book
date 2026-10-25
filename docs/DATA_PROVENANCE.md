@@ -4,7 +4,7 @@ All supplied records are synthetic teaching fixtures from the confirmed companio
 
 | Lesson | Fixture origin | Branch and meaning |
 |---|---|---|
-| Readiness | `prerequisites/book_refresher_examples.json`, `fixtures/readiness.json` | Two exact reader-draft refresher examples plus a small separately labeled synthetic join/ranking preview; not part of the 72 chapter-listing population. |
+| Readiness | `prerequisites/book_refresher_examples.json`, `fixtures/readiness.json` | Two reader-draft refresher examples, with the SQL ownership correction explicitly recorded, plus a small separately labeled synthetic join/ranking preview; not part of the 72 chapter-listing population. |
 | Chapters 1–2 | `chapters01_02/fixtures/*.json` | Base A–D history; named deletion/restoration extensions. Known zero and unknown history remain distinct. |
 | Chapter 3 | `chapter03/fixtures/*.json` | The same base contract, independent SQLite selection, isolated deletion/restoration exercises. |
 | Chapter 4 | `chapter04/chapter4.py` constants | Synthetic decisions, outcomes and finalization certificates. Five eligible rows, decision-grain joins and fit-only preprocessing. |

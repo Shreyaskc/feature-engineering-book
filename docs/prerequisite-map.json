@@ -41,14 +41,17 @@
       "id": "refresher_sql_filtering",
       "title": "SQL filtering before aggregation",
       "view_path": "prerequisites/refresher-sql.md",
-      "code_sha256": "6b98ad05090bc5b943f4788d63f8b9639fd4b4b2bbd95d6358c5f71b07d6a2e1",
+      "code_sha256": "1c0430484eb1e89bd6134130ad2ccb162183e40cc0aac5ae72c6a82c731a006f",
       "source_paragraph": 2032,
       "source_version": 2,
       "canonical_source_path": "prerequisites/book_refresher_examples.json",
       "view_code_start_line": 10,
-      "view_code_end_line": 19,
+      "view_code_end_line": 20,
       "language": "python",
-      "source_document_sha256": "f863704fdd1e65582883cad9583bdd4add9504b0b1feeebe3111d2dcad146f26"
+      "source_document_sha256": "f863704fdd1e65582883cad9583bdd4add9504b0b1feeebe3111d2dcad146f26",
+      "original_code_sha256": "6b98ad05090bc5b943f4788d63f8b9639fd4b4b2bbd95d6358c5f71b07d6a2e1",
+      "lab_revision": "deterministic-sqlite-ownership",
+      "source_alignment_note": "Original paragraph 2032 requires the same closing scope correction; stdout and transaction semantics are preserved."
     }
   ],
   "observed_output_path": "evidence/mac/prerequisites/run_1/observed.json",

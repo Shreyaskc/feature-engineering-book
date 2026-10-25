@@ -27,5 +27,10 @@
     "repository_methods_before": 16,
     "repository_methods_after": 19,
     "normal_fixture_outputs_changed": false
+  },
+  "chapter04_sqlite_ownership": {
+    "before_source_sha256": "5e4927cc364a2d390753ad6f59f43e01d472a8ecad1c2cc5b8fb87421565d793",
+    "after_source_sha256": "d6a2bd6b9dfb68337784ae799160fa60e4d5aabbe4e5236dea29fbe36d6628a5",
+    "reason": "Close the owned SQLite join connection on success and SQL errors. The accepted global event identity and all semantic manifest fields remain unchanged."
   }
 }
