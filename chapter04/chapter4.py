@@ -76,7 +76,11 @@ def unique_by(rows, key):
 
 
 def canonical_events(events):
-    """Validate and deduplicate a finite iterable, including one-shot inputs."""
+    """Validate global event/version identities, including one-shot inputs.
+
+    An event ID belongs to one customer and event time across all revisions,
+    following the source identity contract introduced in Chapter 2.
+    """
     events = tuple(events)
     for e in events:
         if not e.customer or not e.event:
@@ -86,13 +90,13 @@ def canonical_events(events):
             raise ValueError('event numeric fields must be integers')
         if e.version < 1 or e.amount < 0 or e.available_at < e.event_time:
             raise ValueError('invalid event fields')
-    rows = unique_by(events, lambda e: (e.customer, e.event, e.version))
-    times = {}
+    rows = unique_by(events, lambda e: (e.event, e.version))
+    identities = {}
     for e in rows:
-        key = (e.customer, e.event)
-        if key in times and times[key] != e.event_time:
-            raise ValueError('event time corrections are out of scope')
-        times[key] = e.event_time
+        identity = (e.customer, e.event_time)
+        if e.event in identities and identities[e.event] != identity:
+            raise ValueError('event customer and time are immutable')
+        identities[e.event] = identity
     return rows
 
 
@@ -217,7 +221,7 @@ def main():
         excluded=excluded, preprocessing_mean=center,
         source_fixture='chapter4.py constants; synthetic only',
         source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-        event_identity=['customer', 'event', 'version'],
+        event_identity=['event', 'version'],
         revision_policy='highest eligible version; fixed customer and event time',
         entity_policy='future mixture of returning and new customers',
         preprocessing_policy='fit on training values only; freeze for validation',

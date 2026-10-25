@@ -26,7 +26,7 @@ from scripts.listing_views import check_views, check_readiness_views
 
 ROOT = Path(__file__).resolve().parent
 ORDER = ('chapters01_02', *(f'chapter{n:02}' for n in range(3, 11)))
-COUNTS = dict(zip(ORDER, (48, 29, 48, 48, 62, 47, 42, 70, 57)))
+COUNTS = dict(zip(ORDER, (48, 29, 52, 48, 62, 47, 42, 70, 57)))
 ENV = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', PYTHONHASHSEED='0',
            PYTHONPATH='', PYTHONNOUSERSITE='1', PYTHONOPTIMIZE='')
 
@@ -178,6 +178,24 @@ def reviewed_code_manifest(expected, folder):
     return revised
 
 
+def reviewed_chapter04_manifest(expected):
+    """Check the explicit global-identity correction against historical bytes.
+
+    Only the corrected identity declaration and its current source hash differ;
+    dataset values, labels, splits and every other contract remain compared.
+    """
+    change = load(ROOT/'provenance/RUNTIME_MANIFEST_UPDATES.json')['chapter04_global_event_identity']
+    require(expected['source_sha256'] == change['before_source_sha256'] and
+            expected['event_identity'] == ['customer', 'event', 'version'],
+            'Historical chapter04 identity differs from reviewed baseline')
+    active = load(ROOT/'provenance/LAB_FILES.json')
+    require(active['chapter04/chapter4.py'] == change['after_source_sha256'],
+            'Current chapter04 source identity differs from reviewed correction')
+    revised = deepcopy(expected)
+    revised['source_sha256'] = change['after_source_sha256']
+    revised['event_identity'] = ['event', 'version']
+    return revised
+
 def run_once(folder, destination):
     logs, comparisons, commands = [], [], []
     def run(*args):
@@ -221,6 +239,7 @@ def run_once(folder, destination):
         if n == 'chapter04':
             compare_json(load(folder/'dataset_rows.json'), load(folder/'expected_output.json')['rows'], 'chapter04 dataset rows')
             original = json.loads(zipfile.ZipFile(ROOT/'provenance/companion-code-baseline.zip').read('chapter04/dataset_manifest.json'))
+            original = reviewed_chapter04_manifest(original)
             compare_json(load(folder/'dataset_manifest.json'), original, 'chapter04 manifest', ('python','sqlite'))
             require(run('sample3_original_check.py') == 'Original Chapter 3 function passed five direct assertions.\n', 'Legacy regression mismatch')
         else:

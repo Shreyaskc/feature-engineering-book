@@ -8,5 +8,24 @@
       "after_sha256": "d7844077c4052fe7f596fbf2d9dcb1ab22969aaa7af815f2e06071667c03084a",
       "reason": "Complete independent key/contracts/publication-time comparisons and exogenous expected delivery timing; no feature values or expected semantic snapshot changed."
     }
-  ]
+  ],
+  "chapter04_global_event_identity": {
+    "before_source_sha256": "f36a21aeab0e98936d6b03c4bc02a3798240e72f6188b7b5e1d8365ac9561080",
+    "after_source_sha256": "5e4927cc364a2d390753ad6f59f43e01d472a8ecad1c2cc5b8fb87421565d793",
+    "before_event_identity": [
+      "customer",
+      "event",
+      "version"
+    ],
+    "after_event_identity": [
+      "event",
+      "version"
+    ],
+    "reason": "Inherited Chapter 2 source contract has global business-event IDs; customer and event time are immutable across revisions. Historical manifest bytes remain unchanged.",
+    "unit_methods_before": 48,
+    "unit_methods_after": 52,
+    "repository_methods_before": 16,
+    "repository_methods_after": 19,
+    "normal_fixture_outputs_changed": false
+  }
 }

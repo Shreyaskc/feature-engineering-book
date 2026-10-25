@@ -48,7 +48,7 @@ class HistoricalFeatureTests(unittest.TestCase):
               Event('C1','Z',1,590,599,9)]
         self.assertEqual(historical_sum(es,'C1',600),2)
     def test_other_customer_isolated(self):
-        self.assertEqual(historical_sum(EVENTS+[Event('C2','A',1,590,591,999)],'C1',600),50)
+        self.assertEqual(historical_sum(EVENTS+[Event('C2','foreign-event',1,590,591,999)],'C1',600),50)
     def test_conflicting_duplicate_rejected(self):
         with self.assertRaises(ValueError):
             historical_sum(EVENTS+[replace(EVENTS[0],amount=21)],'C1',600)

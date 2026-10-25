@@ -1,11 +1,12 @@
 {
   "authoritative_module": "book1-chapter4/lab/chapter4.py",
-  "change": "Snapshot finite one-shot decision and event inputs before multiple passes; outcomes are already materialized by deduplication.",
+  "change": "Honor the Chapter 2 global business event identity: deduplicate by (event, version) and reject customer or event-time reassignment across versions; preserve normal fixture outputs.",
   "chapter": 4,
   "external_actions": false,
   "fixture_semantics_changed": false,
-  "module_sha256": "f36a21aeab0e98936d6b03c4bc02a3798240e72f6188b7b5e1d8365ac9561080",
+  "module_sha256": "5e4927cc364a2d390753ad6f59f43e01d472a8ecad1c2cc5b8fb87421565d793",
   "original_source_archive": "chapter4-lab.zip",
   "original_source_archive_sha256": "4826fa1b9b52b92a0d2388b35be5409effa531ca8a13ef9304e22b6e8f9a9944",
-  "revision": "2026-10-05-iterables-v2"
+  "revision": "F-B1-global-event-identity",
+  "previous_revision": "2026-10-05-iterables-v2"
 }

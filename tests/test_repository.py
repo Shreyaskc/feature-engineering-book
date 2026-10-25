@@ -46,13 +46,13 @@ class RuntimeComparisonTests(unittest.TestCase):
 
 class ReviewedCodeIdentityTests(unittest.TestCase):
     def historical(self):
-        with zipfile.ZipFile(ROOT/'provenance/companion-labs-v0.zip') as archive:
+        with zipfile.ZipFile(ROOT/'provenance/companion-code-baseline.zip') as archive:
             return json.loads(archive.read('chapter06/generated/manifest.json'))
 
     def test_only_declared_code_metadata_changes_and_input_is_preserved(self):
         original=self.historical();before=deepcopy(original)
         corrected=verification.reviewed_code_manifest(original,'chapter06')
-        updates=verification.load(ROOT/'provenance/REVIEWED_CORRECTIONS.json')['runtime_manifest_code_updates']
+        updates=verification.load(ROOT/'provenance/RUNTIME_MANIFEST_UPDATES.json')['runtime_manifest_code_updates']
         self.assertEqual(original,before)
         self.assertEqual(corrected['code_sha256']['randomized_checks.py'],next(c['after_sha256'] for c in updates if c['folder']=='chapter06'))
         corrected['code_sha256']=before['code_sha256']
@@ -72,6 +72,43 @@ class ReviewedCodeIdentityTests(unittest.TestCase):
             return value
         with patch.object(verification,'load',side_effect=altered),self.assertRaisesRegex(RuntimeError,'Current code identity differs'):
             verification.reviewed_code_manifest(original,'chapter06')
+
+
+class ReviewedChapter04IdentityTests(unittest.TestCase):
+    def historical(self):
+        with zipfile.ZipFile(ROOT/'provenance/companion-code-baseline.zip') as archive:
+            return json.loads(archive.read('chapter04/dataset_manifest.json'))
+
+    def test_only_source_hash_and_global_identity_declaration_change(self):
+        original = self.historical()
+        before = deepcopy(original)
+        revised = verification.reviewed_chapter04_manifest(original)
+        self.assertEqual(original, before)
+        self.assertEqual(revised['event_identity'], ['event', 'version'])
+        self.assertEqual(revised['source_sha256'], verification.load(ROOT/'provenance/LAB_FILES.json')['chapter04/chapter4.py'])
+        for field in ('source_sha256', 'event_identity'):
+            revised[field] = before[field]
+        self.assertEqual(revised, before)
+
+    def test_unexpected_historical_identity_or_hash_is_rejected(self):
+        for field, value in [('source_sha256', '0'*64), ('event_identity', ['invented'])]:
+            with self.subTest(field=field):
+                original = self.historical()
+                original[field] = value
+                with self.assertRaisesRegex(RuntimeError, 'Historical chapter04 identity differs'):
+                    verification.reviewed_chapter04_manifest(original)
+
+    def test_resealed_source_hash_without_reviewed_identity_is_rejected(self):
+        original = self.historical()
+        load = verification.load
+        def altered(path):
+            value = load(path)
+            if path.name == 'LAB_FILES.json':
+                value = dict(value)
+                value['chapter04/chapter4.py'] = '0'*64
+            return value
+        with patch.object(verification, 'load', side_effect=altered), self.assertRaisesRegex(RuntimeError, 'Current chapter04 source identity differs'):
+            verification.reviewed_chapter04_manifest(original)
 
 
 class ListingViewTests(unittest.TestCase):
