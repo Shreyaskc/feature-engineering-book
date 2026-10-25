@@ -1,0 +1,22 @@
+[
+  {
+    "command": "python sqlite_lab.py",
+    "stdout": "50\n"
+  },
+  {
+    "command": "python sqlite_lab.py --known-at 610",
+    "stdout": "85\n"
+  },
+  {
+    "command": "python sqlite_lab.py --window-start 550 --window-end 610 --known-at 610",
+    "stdout": "95\n"
+  },
+  {
+    "command": "python sqlite_lab.py --unknown-history",
+    "stdout": "null\n"
+  },
+  {
+    "command": "python run_sql_file.py",
+    "stdout": "50\n"
+  }
+]

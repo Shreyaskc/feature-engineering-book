@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "snippets": [
+    {
+      "id": "ch3_01",
+      "title": "Three questions, three answers",
+      "language": "python",
+      "code": "from historical_lab import Query, load_fixture, reference_value\nledger = load_fixture()\nprint(reference_value(ledger, Query(\"C1\", 540, 600, 600)))\nprint(reference_value(ledger, Query(\"C1\", 550, 610, 610)))\nprint(reference_value(ledger, Query(\"C1\", 540, 600, 610)))\n",
+      "expected_stdout": "50\n95\n85\n"
+    },
+    {
+      "id": "ch3_02",
+      "title": "Inspect the selected evidence",
+      "language": "python",
+      "code": "from historical_lab import Query, explain, load_fixture\nledger = load_fixture()\nfor cutoff in (600, 610):\n    trace = explain(ledger, Query(\"C1\", 540, 600, cutoff))\n    chosen = [(r[\"event_id\"], r[\"revision\"]) for r in trace[\"selected\"]]\n    print(cutoff, chosen)\nprint(trace[\"selected\"][-1][\"reason\"])\n",
+      "expected_stdout": "600 [('A', 1), ('C', 1)]\n610 [('A', 1), ('B', 1), ('C', 2), ('D', 1)]\noutside event window\n"
+    },
+    {
+      "id": "ch3_03",
+      "title": "Two wrong reconstruction orders",
+      "language": "python",
+      "code": "from historical_lab import Query, load_fixture, reference_value\nfrom historical_lab import wrong_latest_then_availability\nfrom historical_lab import wrong_ignore_availability\nledger, query = load_fixture(), Query(\"C1\", 540, 600, 600)\nprint(reference_value(ledger, query))\nprint(wrong_latest_then_availability(ledger, query))\nprint(wrong_ignore_availability(ledger, query))\n",
+      "expected_stdout": "50\n20\n85\n"
+    },
+    {
+      "id": "ch3_04",
+      "title": "Later knowledge can lower a total",
+      "language": "python",
+      "code": "from historical_lab import Query, load_fixture, reference_value\nledger = load_fixture()\nfor cutoff in (604, 605, 607):\n    query = Query(\"C1\", 540, 600, cutoff)\n    print(cutoff, reference_value(ledger, query))\n",
+      "expected_stdout": "604 50\n605 45\n607 85\n"
+    },
+    {
+      "id": "ch3_05",
+      "title": "Select eligible versions in SQLite",
+      "language": "sql",
+      "code": "WITH eligible AS (\n    SELECT * FROM revisions WHERE available_at <= :known_at\n), ranked AS (\n    SELECT *, ROW_NUMBER() OVER (\n        PARTITION BY event_id ORDER BY revision DESC\n    ) AS position\n    FROM eligible\n), selected AS (\n    SELECT * FROM ranked WHERE position = 1\n)\nSELECT CASE WHEN :history_known = 0 THEN NULL\n            ELSE COALESCE(SUM(amount), 0) END AS spend\nFROM selected\nWHERE customer_id = :customer_id\n  AND event_time >= :window_start\n  AND event_time < :window_end\n  AND op = 'upsert'\n  AND :history_known = 1;\n",
+      "expected_stdout": "50\n",
+      "parameters": {
+        "customer_id": "C1",
+        "window_start": 540,
+        "window_end": 600,
+        "known_at": 600,
+        "history_known": 1
+      },
+      "fixture": "base"
+    },
+    {
+      "id": "ch3_06",
+      "title": "Select tombstones before filtering operations",
+      "language": "python",
+      "code": "from historical_lab import Query, explain, load_fixture, sqlite_value\nledger = load_fixture(\"deletion_extension\")\nquery = Query(\"C1\", 540, 600, 620)\ntrace = explain(ledger, query)\nprint([(r[\"event_id\"], r[\"revision\"], r[\"op\"])\n       for r in trace[\"selected\"] if r[\"event_id\"] == \"C\"])\nprint(trace[\"value\"], sqlite_value(ledger, query))\nprint(sqlite_value(ledger, Query(\"C1\", 540, 600, 600)))\n",
+      "expected_stdout": "[('C', 3, 'delete')]\n60 60\n50\n"
+    },
+    {
+      "id": "ch3_07",
+      "title": "Read an explicitly authorized restoration",
+      "language": "python",
+      "code": "from historical_lab import Query, load_fixture, reference_value, sqlite_value\nledger = load_fixture(\"restoration_extension\")\nprint(ledger.allow_restore)\nfor cutoff in (619, 620):\n    query = Query(\"C1\", 540, 600, cutoff)\n    print(cutoff, reference_value(ledger, query), sqlite_value(ledger, query))\n",
+      "expected_stdout": "True\n619 60 60\n620 88 88\n"
+    },
+    {
+      "id": "ch3_08",
+      "title": "Preserve the coverage distinction",
+      "language": "python",
+      "code": "from historical_lab import Query, load_fixture, reference_value, sqlite_value\nledger = load_fixture()\nfor known in (True, False):\n    query = Query(\"C9\", 540, 600, 600, history_known=known)\n    print(reference_value(ledger, query), sqlite_value(ledger, query))\n",
+      "expected_stdout": "0 0\nNone None\n"
+    },
+    {
+      "id": "ch3_09",
+      "title": "Replaying delivery evidence preserves history",
+      "language": "python",
+      "code": "from foundations_lab import Delivery, Ledger, ingest\nfrom historical_lab import Query, load_fixture, sqlite_value\nledger = load_fixture()\nretry = Delivery(\"a1-later\", ledger.history[0], delivered_at=609)\nreplayed = ingest(ledger, [retry, retry])\nreversed_log = Ledger(tuple(reversed(replayed.deliveries)))\nprint(replayed.history == ledger.history)\nprint(reversed_log == replayed)\nprint(sqlite_value(reversed_log, Query(\"C1\", 540, 600, 600)))\n",
+      "expected_stdout": "True\nTrue\n50\n"
+    }
+  ]
+}

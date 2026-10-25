@@ -1,0 +1,84 @@
+{
+  "artifact_sha256": {
+    "audit.json": "098d21817405353b359fceb8a401944d3401d2362e432e3821d492614f1fe7dd",
+    "baseline_dataset.json": "dc5ffea881faf3522e23a4a5a09deb8dc7446ffceb983d3e9e0edfabdeca0ab8",
+    "comparison.json": "e728d80cc5efd76a2d3df822bc504264b54fd9f8cac594845e0f10bf4bc84897",
+    "continuity.json": "b3c25185715478a4187fb5be697d29e3d2e02371403b52e917cb60312a00a176",
+    "improved_dataset.json": "c19ccd0975be593a923b94cb5118f9e2e2071324b6c3c5203d14435c843bdfb9",
+    "lookups.json": "83f71f651e5d4fd59c5c9840c502bfc4679242794812ebd7c534a4b9bcb6e377",
+    "publications.json": "0d901b9711792d5bc23dbe3eebad09e21fa39fd628126c7fca38138651e0ff1b",
+    "source_snapshot.json": "f52a1fc508b07dffd96f405f78fa0fed7c29291e26a42ed2744afe9fe36de292"
+  },
+  "canonical_source_sha256": "bd5dde2dd4b99a89f7a0ac26b5541fd35dd62aaa45c2ed7d5943d3fae7a71c6c",
+  "case": "base",
+  "case_config": {
+    "audit_at": 620,
+    "decisions": [
+      {
+        "customer_id": "C1",
+        "decision_at": 600,
+        "history_known": true,
+        "row_id": "D1"
+      },
+      {
+        "customer_id": "C1",
+        "decision_at": 610,
+        "history_known": true,
+        "row_id": "D2"
+      },
+      {
+        "customer_id": "C9",
+        "decision_at": 600,
+        "history_known": true,
+        "row_id": "Z1"
+      },
+      {
+        "customer_id": "C1",
+        "decision_at": 600,
+        "history_known": false,
+        "row_id": "U1"
+      }
+    ]
+  },
+  "code_sha256": {
+    "capstone_lab.py": "8ade413fb683db10c391ae2c8040917b1ed331996f11b3a0871157d635a43191",
+    "foundations_lab.py": "3bbf4b75f430456d9bd5ad2caafcf34f05d38a77a8f4c11c75075eae0aab628a",
+    "parity_lab.py": "1bd7fa504b465f1005cef7715ff7cd71a706e593fb0fa5d3308c6b30ad9a251e"
+  },
+  "contracts": {
+    "deadline_inclusive": 610,
+    "historical": "rolling 60 minutes, cutoff=decision_at",
+    "initial_at": 600,
+    "missingness": "known empty=0; unknown=None; explicit flags",
+    "online_key": {
+      "entity": "C1",
+      "feature_definition_id": "known_spend_fixed_window_v1",
+      "policy_id": "immediate_then_correct",
+      "window_end": 600,
+      "window_start": 540
+    },
+    "online_schedule": "immediate_publication_visibility",
+    "source_adapter": "upsert only; reject deletion/restoration"
+  },
+  "input_file_sha256": {
+    "fixtures/base.json": "0a063cdfe48d7fe4ad4b7b17ee274be7d11b0b77d35a2a348b47c6971302b983",
+    "fixtures/late_arrival.json": "c852a4ec723ca6954bae709568514e029a87d1ab363e979373410e03fb68fe17"
+  },
+  "runtime": {
+    "dependencies": "stdlib only",
+    "implementation": "CPython",
+    "python_version": "3.12.14"
+  },
+  "schema_version": 1,
+  "training_boundary": {
+    "artifact_kind": "feature_dataset_only",
+    "labels_present": false,
+    "model_fitted": false,
+    "required_before_predictive_training": [
+      "label definition and label availability",
+      "split and leakage review",
+      "fit-only preprocessing and state identities",
+      "model and evaluation contracts"
+    ]
+  }
+}

@@ -1,0 +1,1333 @@
+{
+  "checks": [
+    "d1_happy_path",
+    "nonnegative_integer",
+    "hand_calculated",
+    "shuffled_input",
+    "replayed_input",
+    "half_open_boundary",
+    "later_info_invariance",
+    "source_schema",
+    "unknown_coverage"
+  ],
+  "evidence": {
+    "d1_happy_path": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "D1",
+            "expected": 50,
+            "observed": 20,
+            "passed": false
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "D1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "D1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "D1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "D1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "D1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "half_open_boundary": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "[540, 600): 5 + 7; exclude 11",
+            "expected": 12,
+            "observed": 12,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "[540, 600): 5 + 7; exclude 11",
+            "expected": 12,
+            "observed": 12,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "[540, 600): 5 + 7; exclude 11",
+            "expected": 12,
+            "observed": 23,
+            "passed": false
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "[540, 600): 5 + 7; exclude 11",
+            "expected": 12,
+            "observed": 12,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "[540, 600): 5 + 7; exclude 11",
+            "expected": 12,
+            "observed": 12,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "[540, 600): 5 + 7; exclude 11",
+            "expected": 12,
+            "observed": 12,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "hand_calculated": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "D1: A1 + C1",
+            "expected": 50,
+            "observed": 20,
+            "passed": false
+          },
+          {
+            "case": "D2: A1 + B1 + C2 + D1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "D1: A1 + C1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "D2: A1 + B1 + C2 + D1",
+            "expected": 95,
+            "observed": 125,
+            "passed": false
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "D1: A1 + C1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "D2: A1 + B1 + C2 + D1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "D1: A1 + C1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "D2: A1 + B1 + C2 + D1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "D1: A1 + C1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "D2: A1 + B1 + C2 + D1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "D1: A1 + C1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "D2: A1 + B1 + C2 + D1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "later_info_invariance": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "append valid source information available after 600",
+            "expected": 30,
+            "observed": 0,
+            "passed": false
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "append valid source information available after 600",
+            "expected": 30,
+            "observed": 30,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "append valid source information available after 600",
+            "expected": 30,
+            "observed": 30,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "append valid source information available after 600",
+            "expected": 30,
+            "observed": 30,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "append valid source information available after 600",
+            "expected": 30,
+            "observed": 30,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "append valid source information available after 600",
+            "expected": 30,
+            "observed": 30,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "nonnegative_integer": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "nonnegative numeric outputs",
+            "expected": true,
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "nonnegative numeric outputs",
+            "expected": true,
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "nonnegative numeric outputs",
+            "expected": true,
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "nonnegative numeric outputs",
+            "expected": true,
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "nonnegative numeric outputs",
+            "expected": true,
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "nonnegative numeric outputs",
+            "expected": true,
+            "observed": true,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "replayed_input": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "identical batch replay",
+            "expected": 20,
+            "observed": 20,
+            "passed": true
+          },
+          {
+            "case": "new delivery ID for A1",
+            "expected": 20,
+            "observed": 20,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "identical batch replay",
+            "expected": 50,
+            "observed": 100,
+            "passed": false
+          },
+          {
+            "case": "new delivery ID for A1",
+            "expected": 50,
+            "observed": 70,
+            "passed": false
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "identical batch replay",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "new delivery ID for A1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "identical batch replay",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "new delivery ID for A1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "identical batch replay",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "new delivery ID for A1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "identical batch replay",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          },
+          {
+            "case": "new delivery ID for A1",
+            "expected": 50,
+            "observed": 50,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "shuffled_input": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "reversed input",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 2",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 3",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 4",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 5",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 6",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "reversed input",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          },
+          {
+            "case": "shuffle 1",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          },
+          {
+            "case": "shuffle 2",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          },
+          {
+            "case": "shuffle 3",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          },
+          {
+            "case": "shuffle 4",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          },
+          {
+            "case": "shuffle 5",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          },
+          {
+            "case": "shuffle 6",
+            "expected": 125,
+            "observed": 125,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "reversed input",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 2",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 3",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 4",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 5",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 6",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "reversed input",
+            "expected": 95,
+            "observed": 100,
+            "passed": false
+          },
+          {
+            "case": "shuffle 1",
+            "expected": 95,
+            "observed": 100,
+            "passed": false
+          },
+          {
+            "case": "shuffle 2",
+            "expected": 95,
+            "observed": 100,
+            "passed": false
+          },
+          {
+            "case": "shuffle 3",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 4",
+            "expected": 95,
+            "observed": 100,
+            "passed": false
+          },
+          {
+            "case": "shuffle 5",
+            "expected": 95,
+            "observed": 100,
+            "passed": false
+          },
+          {
+            "case": "shuffle 6",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "reversed input",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 2",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 3",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 4",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 5",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 6",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "reversed input",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 1",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 2",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 3",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 4",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 5",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          },
+          {
+            "case": "shuffle 6",
+            "expected": 95,
+            "observed": 95,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "source_schema": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "missing_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "null_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "string_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "unexpected_record_field",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "conflicting_source_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "missing_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "null_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "string_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "unexpected_record_field",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "conflicting_source_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "missing_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "null_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "string_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "unexpected_record_field",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "conflicting_source_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "missing_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "null_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "string_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "unexpected_record_field",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "conflicting_source_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "missing_available_at",
+            "expected": "ContractError",
+            "observed": "returned 90",
+            "passed": false
+          },
+          {
+            "case": "null_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "string_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "unexpected_record_field",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "conflicting_source_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          }
+        ],
+        "status": "ASSERTION_FAILED"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "missing_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "null_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "string_available_at",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "bool_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "unexpected_record_field",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          },
+          {
+            "case": "conflicting_source_revision",
+            "expected": "ContractError",
+            "observed": "ContractError",
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "unknown_coverage": {
+      "M1_latest_before_cutoff": {
+        "observations": [
+          {
+            "case": "known empty",
+            "expected": 0,
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "case": "unknown empty",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          },
+          {
+            "case": "unknown partial",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M2_count_deliveries": {
+        "observations": [
+          {
+            "case": "known empty",
+            "expected": 0,
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "case": "unknown empty",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          },
+          {
+            "case": "unknown partial",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M3_inclusive_upper": {
+        "observations": [
+          {
+            "case": "known empty",
+            "expected": 0,
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "case": "unknown empty",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          },
+          {
+            "case": "unknown partial",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M4_input_order_latest": {
+        "observations": [
+          {
+            "case": "known empty",
+            "expected": 0,
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "case": "unknown empty",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          },
+          {
+            "case": "unknown partial",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "M5_infer_availability": {
+        "observations": [
+          {
+            "case": "known empty",
+            "expected": 0,
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "case": "unknown empty",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          },
+          {
+            "case": "unknown partial",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      },
+      "reference": {
+        "observations": [
+          {
+            "case": "known empty",
+            "expected": 0,
+            "observed": 0,
+            "passed": true
+          },
+          {
+            "case": "unknown empty",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          },
+          {
+            "case": "unknown partial",
+            "expected": null,
+            "observed": null,
+            "passed": true
+          }
+        ],
+        "status": "PASS"
+      }
+    }
+  },
+  "implementations": [
+    "reference",
+    "M1_latest_before_cutoff",
+    "M2_count_deliveries",
+    "M3_inclusive_upper",
+    "M4_input_order_latest",
+    "M5_infer_availability"
+  ],
+  "interpretation": "PASS means this check did not expose a mismatch. ASSERTION_FAILED detects a specified mismatch. ERROR means an unexpected exception and aborts the report. No status proves general correctness.",
+  "known_blind_spots": {
+    "d1_happy_path": "One known answer does not cover other cutoffs, order, invalid data or boundaries.",
+    "half_open_boundary": "Three single-version events do not probe retries, future revisions or malformed records.",
+    "hand_calculated": "These two examples omit exact upper boundaries, malformed schema and reordered input.",
+    "later_info_invariance": "A consistently wrong historical result can remain invariant; add an independent answer.",
+    "nonnegative_integer": "A wrong positive integer still passes; unknown coverage is never exercised.",
+    "replayed_input": "Replay invariance alone cannot prove revision cutoff or boundary semantics.",
+    "shuffled_input": "Order invariance can hold for a consistently wrong sum; the expected total is not fixed here.",
+    "source_schema": "Correctly shaped records can contain a false real-world availability timestamp.",
+    "unknown_coverage": "Coverage semantics need an explicit assertion; the caller's coverage claim may itself be wrong."
+  },
+  "matrix": {
+    "d1_happy_path": {
+      "M1_latest_before_cutoff": "ASSERTION_FAILED",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "half_open_boundary": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "ASSERTION_FAILED",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "hand_calculated": {
+      "M1_latest_before_cutoff": "ASSERTION_FAILED",
+      "M2_count_deliveries": "ASSERTION_FAILED",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "later_info_invariance": {
+      "M1_latest_before_cutoff": "ASSERTION_FAILED",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "nonnegative_integer": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "replayed_input": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "ASSERTION_FAILED",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "shuffled_input": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "ASSERTION_FAILED",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "source_schema": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "ASSERTION_FAILED",
+      "reference": "PASS"
+    },
+    "unknown_coverage": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    }
+  },
+  "mutation_score_limit": "The diagnostic suite detects these five chosen artificial faults. The ratio is conditional on this mutant set, fixtures and assertions; it is not production reliability or exhaustive coverage.",
+  "schema_version": 1,
+  "suite_results": {
+    "diagnostic": {
+      "detected": [
+        "M1_latest_before_cutoff",
+        "M2_count_deliveries",
+        "M3_inclusive_upper",
+        "M4_input_order_latest",
+        "M5_infer_availability"
+      ],
+      "detected_count": 5,
+      "survived": [],
+      "total_selected_mutants": 5
+    },
+    "weak": {
+      "detected": [
+        "M1_latest_before_cutoff"
+      ],
+      "detected_count": 1,
+      "survived": [
+        "M2_count_deliveries",
+        "M3_inclusive_upper",
+        "M4_input_order_latest",
+        "M5_infer_availability"
+      ],
+      "total_selected_mutants": 5
+    }
+  },
+  "unmeasured": [
+    "real-world timestamp truth",
+    "served-value equality",
+    "distributed failures",
+    "performance and load",
+    "unselected faults"
+  ]
+}

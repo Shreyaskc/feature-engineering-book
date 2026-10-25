@@ -1,0 +1,22 @@
+{
+  "exercise_1": {
+    "mutant_original": 50,
+    "mutant_replayed": 100,
+    "reference_original": 50,
+    "reference_replayed": 50
+  },
+  "exercise_2": {
+    "mutant_value": 90,
+    "reference_rejected": true
+  },
+  "exercise_3": {
+    "known_empty": 0,
+    "unknown_empty": null,
+    "unknown_partial": null
+  },
+  "exercise_4": {
+    "604": 50,
+    "605": 45,
+    "607": 85
+  }
+}

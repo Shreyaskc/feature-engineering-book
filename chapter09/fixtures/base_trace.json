@@ -1,0 +1,723 @@
+{
+  "observations": [
+    {
+      "cache_capture_at": null,
+      "contracts": {
+        "policy_contract_version": "policy-v1",
+        "preprocessing_id": "identity-v1",
+        "publication_schema_version": "publication-v1",
+        "serving_log_schema_version": "serving-log-v1",
+        "source_schema_version": "source-v1"
+      },
+      "fallback_reason": "cache_miss",
+      "fallback_used": true,
+      "fallback_value": 0,
+      "feature_missing": true,
+      "key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "model_input": 0,
+      "preprocessing_id": "identity-v1",
+      "present_fields": [
+        "cache_capture_at",
+        "contracts",
+        "fallback_reason",
+        "fallback_used",
+        "fallback_value",
+        "feature_missing",
+        "key",
+        "model_input",
+        "preprocessing_id",
+        "raw_value",
+        "value_key",
+        "value_revision",
+        "value_source_cutoff",
+        "value_source_versions"
+      ],
+      "raw_value": null,
+      "request_id": "R0",
+      "requested_at": 600,
+      "value_key": null,
+      "value_revision": null,
+      "value_source_cutoff": null,
+      "value_source_versions": null
+    },
+    {
+      "cache_capture_at": 601,
+      "contracts": {
+        "policy_contract_version": "policy-v1",
+        "preprocessing_id": "identity-v1",
+        "publication_schema_version": "publication-v1",
+        "serving_log_schema_version": "serving-log-v1",
+        "source_schema_version": "source-v1"
+      },
+      "fallback_reason": null,
+      "fallback_used": false,
+      "fallback_value": null,
+      "feature_missing": false,
+      "key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "model_input": 50,
+      "preprocessing_id": "identity-v1",
+      "present_fields": [
+        "cache_capture_at",
+        "contracts",
+        "fallback_reason",
+        "fallback_used",
+        "fallback_value",
+        "feature_missing",
+        "key",
+        "model_input",
+        "preprocessing_id",
+        "raw_value",
+        "value_key",
+        "value_revision",
+        "value_source_cutoff",
+        "value_source_versions"
+      ],
+      "raw_value": 50,
+      "request_id": "R1",
+      "requested_at": 602,
+      "value_key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "value_revision": 1,
+      "value_source_cutoff": 600,
+      "value_source_versions": [
+        [
+          "A",
+          1
+        ],
+        [
+          "C",
+          1
+        ]
+      ]
+    },
+    {
+      "cache_capture_at": 601,
+      "contracts": {
+        "policy_contract_version": "policy-v1",
+        "preprocessing_id": "identity-v1",
+        "publication_schema_version": "publication-v1",
+        "serving_log_schema_version": "serving-log-v1",
+        "source_schema_version": "source-v1"
+      },
+      "fallback_reason": null,
+      "fallback_used": false,
+      "fallback_value": null,
+      "feature_missing": false,
+      "key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "model_input": 50,
+      "preprocessing_id": "identity-v1",
+      "present_fields": [
+        "cache_capture_at",
+        "contracts",
+        "fallback_reason",
+        "fallback_used",
+        "fallback_value",
+        "feature_missing",
+        "key",
+        "model_input",
+        "preprocessing_id",
+        "raw_value",
+        "value_key",
+        "value_revision",
+        "value_source_cutoff",
+        "value_source_versions"
+      ],
+      "raw_value": 50,
+      "request_id": "R2",
+      "requested_at": 606,
+      "value_key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "value_revision": 1,
+      "value_source_cutoff": 600,
+      "value_source_versions": [
+        [
+          "A",
+          1
+        ],
+        [
+          "C",
+          1
+        ]
+      ]
+    },
+    {
+      "cache_capture_at": 601,
+      "contracts": {
+        "policy_contract_version": "policy-v1",
+        "preprocessing_id": "identity-v1",
+        "publication_schema_version": "publication-v1",
+        "serving_log_schema_version": "serving-log-v1",
+        "source_schema_version": "source-v1"
+      },
+      "fallback_reason": null,
+      "fallback_used": false,
+      "fallback_value": null,
+      "feature_missing": false,
+      "key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "model_input": 50,
+      "preprocessing_id": "identity-v1",
+      "present_fields": [
+        "cache_capture_at",
+        "contracts",
+        "fallback_reason",
+        "fallback_used",
+        "fallback_value",
+        "feature_missing",
+        "key",
+        "model_input",
+        "preprocessing_id",
+        "raw_value",
+        "value_key",
+        "value_revision",
+        "value_source_cutoff",
+        "value_source_versions"
+      ],
+      "raw_value": 50,
+      "request_id": "R3",
+      "requested_at": 608,
+      "value_key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "value_revision": 1,
+      "value_source_cutoff": 600,
+      "value_source_versions": [
+        [
+          "A",
+          1
+        ],
+        [
+          "C",
+          1
+        ]
+      ]
+    },
+    {
+      "cache_capture_at": 609,
+      "contracts": {
+        "policy_contract_version": "policy-v1",
+        "preprocessing_id": "identity-v1",
+        "publication_schema_version": "publication-v1",
+        "serving_log_schema_version": "serving-log-v1",
+        "source_schema_version": "source-v1"
+      },
+      "fallback_reason": null,
+      "fallback_used": false,
+      "fallback_value": null,
+      "feature_missing": false,
+      "key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "model_input": 85,
+      "preprocessing_id": "identity-v1",
+      "present_fields": [
+        "cache_capture_at",
+        "contracts",
+        "fallback_reason",
+        "fallback_used",
+        "fallback_value",
+        "feature_missing",
+        "key",
+        "model_input",
+        "preprocessing_id",
+        "raw_value",
+        "value_key",
+        "value_revision",
+        "value_source_cutoff",
+        "value_source_versions"
+      ],
+      "raw_value": 85,
+      "request_id": "R4",
+      "requested_at": 610,
+      "value_key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "value_revision": 3,
+      "value_source_cutoff": 607,
+      "value_source_versions": [
+        [
+          "A",
+          1
+        ],
+        [
+          "B",
+          1
+        ],
+        [
+          "C",
+          2
+        ]
+      ]
+    },
+    {
+      "cache_capture_at": 609,
+      "contracts": {
+        "policy_contract_version": "policy-v1",
+        "preprocessing_id": "identity-v1",
+        "publication_schema_version": "publication-v1",
+        "serving_log_schema_version": "serving-log-v1",
+        "source_schema_version": "source-v1"
+      },
+      "fallback_reason": null,
+      "fallback_used": false,
+      "fallback_value": null,
+      "feature_missing": false,
+      "key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "model_input": 85,
+      "preprocessing_id": "identity-v1",
+      "present_fields": [
+        "cache_capture_at",
+        "contracts",
+        "fallback_reason",
+        "fallback_used",
+        "fallback_value",
+        "feature_missing",
+        "key",
+        "model_input",
+        "preprocessing_id",
+        "raw_value",
+        "value_key",
+        "value_revision",
+        "value_source_cutoff",
+        "value_source_versions"
+      ],
+      "raw_value": 85,
+      "request_id": "R5",
+      "requested_at": 620,
+      "value_key": {
+        "entity": "C1",
+        "feature_definition_id": "known_spend_fixed_window_v1",
+        "policy_id": "immediate_then_correct",
+        "window_end": 600,
+        "window_start": 540
+      },
+      "value_revision": 3,
+      "value_source_cutoff": 607,
+      "value_source_versions": [
+        [
+          "A",
+          1
+        ],
+        [
+          "B",
+          1
+        ],
+        [
+          "C",
+          2
+        ]
+      ]
+    }
+  ],
+  "synthetic": true,
+  "trace": {
+    "cache": {
+      "captures": [
+        [
+          601,
+          {
+            "captured_at": 601,
+            "known": true,
+            "record": {
+              "contracts": {
+                "policy_contract_version": "policy-v1",
+                "preprocessing_id": "identity-v1",
+                "publication_schema_version": "publication-v1",
+                "serving_log_schema_version": "serving-log-v1",
+                "source_schema_version": "source-v1"
+              },
+              "key": {
+                "entity": "C1",
+                "feature_definition_id": "known_spend_fixed_window_v1",
+                "policy_id": "immediate_then_correct",
+                "window_end": 600,
+                "window_start": 540
+              },
+              "published_at": 600,
+              "revision": 1,
+              "source_cutoff": 600,
+              "source_versions": [
+                [
+                  "A",
+                  1
+                ],
+                [
+                  "C",
+                  1
+                ]
+              ],
+              "value": 50
+            }
+          }
+        ],
+        [
+          609,
+          {
+            "captured_at": 609,
+            "known": true,
+            "record": {
+              "contracts": {
+                "policy_contract_version": "policy-v1",
+                "preprocessing_id": "identity-v1",
+                "publication_schema_version": "publication-v1",
+                "serving_log_schema_version": "serving-log-v1",
+                "source_schema_version": "source-v1"
+              },
+              "key": {
+                "entity": "C1",
+                "feature_definition_id": "known_spend_fixed_window_v1",
+                "policy_id": "immediate_then_correct",
+                "window_end": 600,
+                "window_start": 540
+              },
+              "published_at": 607,
+              "revision": 3,
+              "source_cutoff": 607,
+              "source_versions": [
+                [
+                  "A",
+                  1
+                ],
+                [
+                  "B",
+                  1
+                ],
+                [
+                  "C",
+                  2
+                ]
+              ],
+              "value": 85
+            }
+          }
+        ]
+      ],
+      "known": true
+    },
+    "contracts": {
+      "policy_contract_version": "policy-v1",
+      "preprocessing_id": "identity-v1",
+      "publication_schema_version": "publication-v1",
+      "serving_log_schema_version": "serving-log-v1",
+      "source_schema_version": "source-v1"
+    },
+    "deadline": 610,
+    "fallback": 0,
+    "initial_at": 600,
+    "key": {
+      "entity": "C1",
+      "feature_definition_id": "known_spend_fixed_window_v1",
+      "policy_id": "immediate_then_correct",
+      "window_end": 600,
+      "window_start": 540
+    },
+    "publications": [
+      {
+        "contracts": {
+          "policy_contract_version": "policy-v1",
+          "preprocessing_id": "identity-v1",
+          "publication_schema_version": "publication-v1",
+          "serving_log_schema_version": "serving-log-v1",
+          "source_schema_version": "source-v1"
+        },
+        "key": {
+          "entity": "C1",
+          "feature_definition_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "window_end": 600,
+          "window_start": 540
+        },
+        "published_at": 600,
+        "revision": 1,
+        "source_cutoff": 600,
+        "source_versions": [
+          [
+            "A",
+            1
+          ],
+          [
+            "C",
+            1
+          ]
+        ],
+        "value": 50
+      },
+      {
+        "contracts": {
+          "policy_contract_version": "policy-v1",
+          "preprocessing_id": "identity-v1",
+          "publication_schema_version": "publication-v1",
+          "serving_log_schema_version": "serving-log-v1",
+          "source_schema_version": "source-v1"
+        },
+        "key": {
+          "entity": "C1",
+          "feature_definition_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "window_end": 600,
+          "window_start": 540
+        },
+        "published_at": 605,
+        "revision": 2,
+        "source_cutoff": 605,
+        "source_versions": [
+          [
+            "A",
+            1
+          ],
+          [
+            "C",
+            2
+          ]
+        ],
+        "value": 45
+      },
+      {
+        "contracts": {
+          "policy_contract_version": "policy-v1",
+          "preprocessing_id": "identity-v1",
+          "publication_schema_version": "publication-v1",
+          "serving_log_schema_version": "serving-log-v1",
+          "source_schema_version": "source-v1"
+        },
+        "key": {
+          "entity": "C1",
+          "feature_definition_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "window_end": 600,
+          "window_start": 540
+        },
+        "published_at": 607,
+        "revision": 3,
+        "source_cutoff": 607,
+        "source_versions": [
+          [
+            "A",
+            1
+          ],
+          [
+            "B",
+            1
+          ],
+          [
+            "C",
+            2
+          ]
+        ],
+        "value": 85
+      }
+    ],
+    "source": {
+      "known": true,
+      "revisions": [
+        {
+          "amount": 20,
+          "available_at": 551,
+          "entity": "C1",
+          "event_time": 550,
+          "revision": 1,
+          "source_event_id": "A"
+        },
+        {
+          "amount": 40,
+          "available_at": 607,
+          "entity": "C1",
+          "event_time": 575,
+          "revision": 1,
+          "source_event_id": "B"
+        },
+        {
+          "amount": 30,
+          "available_at": 586,
+          "entity": "C1",
+          "event_time": 585,
+          "revision": 1,
+          "source_event_id": "C"
+        },
+        {
+          "amount": 25,
+          "available_at": 605,
+          "entity": "C1",
+          "event_time": 585,
+          "revision": 2,
+          "source_event_id": "C"
+        },
+        {
+          "amount": 10,
+          "available_at": 603,
+          "entity": "C1",
+          "event_time": 602,
+          "revision": 1,
+          "source_event_id": "D"
+        },
+        {
+          "amount": 15,
+          "available_at": 612,
+          "entity": "C1",
+          "event_time": 595,
+          "revision": 1,
+          "source_event_id": "E"
+        }
+      ]
+    },
+    "store": {
+      "accepted": [
+        [
+          601,
+          {
+            "contracts": {
+              "policy_contract_version": "policy-v1",
+              "preprocessing_id": "identity-v1",
+              "publication_schema_version": "publication-v1",
+              "serving_log_schema_version": "serving-log-v1",
+              "source_schema_version": "source-v1"
+            },
+            "key": {
+              "entity": "C1",
+              "feature_definition_id": "known_spend_fixed_window_v1",
+              "policy_id": "immediate_then_correct",
+              "window_end": 600,
+              "window_start": 540
+            },
+            "published_at": 600,
+            "revision": 1,
+            "source_cutoff": 600,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                1
+              ]
+            ],
+            "value": 50
+          }
+        ],
+        [
+          606,
+          {
+            "contracts": {
+              "policy_contract_version": "policy-v1",
+              "preprocessing_id": "identity-v1",
+              "publication_schema_version": "publication-v1",
+              "serving_log_schema_version": "serving-log-v1",
+              "source_schema_version": "source-v1"
+            },
+            "key": {
+              "entity": "C1",
+              "feature_definition_id": "known_spend_fixed_window_v1",
+              "policy_id": "immediate_then_correct",
+              "window_end": 600,
+              "window_start": 540
+            },
+            "published_at": 605,
+            "revision": 2,
+            "source_cutoff": 605,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 45
+          }
+        ],
+        [
+          609,
+          {
+            "contracts": {
+              "policy_contract_version": "policy-v1",
+              "preprocessing_id": "identity-v1",
+              "publication_schema_version": "publication-v1",
+              "serving_log_schema_version": "serving-log-v1",
+              "source_schema_version": "source-v1"
+            },
+            "key": {
+              "entity": "C1",
+              "feature_definition_id": "known_spend_fixed_window_v1",
+              "policy_id": "immediate_then_correct",
+              "window_end": 600,
+              "window_start": 540
+            },
+            "published_at": 607,
+            "revision": 3,
+            "source_cutoff": 607,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "B",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 85
+          }
+        ]
+      ],
+      "known": true
+    }
+  }
+}

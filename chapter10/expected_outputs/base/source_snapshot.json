@@ -1,0 +1,84 @@
+{
+  "allow_restore": false,
+  "deliveries": [
+    {
+      "delivered_at": 551,
+      "delivery_id": "a1",
+      "record": {
+        "amount": 20,
+        "available_at": 551,
+        "customer_id": "C1",
+        "event_id": "A",
+        "event_time": 550,
+        "op": "upsert",
+        "revision": 1
+      }
+    },
+    {
+      "delivered_at": 607,
+      "delivery_id": "b1",
+      "record": {
+        "amount": 40,
+        "available_at": 607,
+        "customer_id": "C1",
+        "event_id": "B",
+        "event_time": 575,
+        "op": "upsert",
+        "revision": 1
+      }
+    },
+    {
+      "delivered_at": 586,
+      "delivery_id": "c1",
+      "record": {
+        "amount": 30,
+        "available_at": 586,
+        "customer_id": "C1",
+        "event_id": "C",
+        "event_time": 585,
+        "op": "upsert",
+        "revision": 1
+      }
+    },
+    {
+      "delivered_at": 605,
+      "delivery_id": "c2",
+      "record": {
+        "amount": 25,
+        "available_at": 605,
+        "customer_id": "C1",
+        "event_id": "C",
+        "event_time": 585,
+        "op": "upsert",
+        "revision": 2
+      }
+    },
+    {
+      "delivered_at": 603,
+      "delivery_id": "d1",
+      "record": {
+        "amount": 10,
+        "available_at": 603,
+        "customer_id": "C1",
+        "event_id": "D",
+        "event_time": 602,
+        "op": "upsert",
+        "revision": 1
+      }
+    },
+    {
+      "delivered_at": 612,
+      "delivery_id": "e1",
+      "record": {
+        "amount": 15,
+        "available_at": 612,
+        "customer_id": "C1",
+        "event_id": "E",
+        "event_time": 595,
+        "op": "upsert",
+        "revision": 1
+      }
+    }
+  ],
+  "schema_version": 1
+}

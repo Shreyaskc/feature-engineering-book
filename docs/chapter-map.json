@@ -1,0 +1,410 @@
+[
+  {
+    "chapter": 1,
+    "title": "Chapter 1 A feature is a promise",
+    "suite": "chapters01_02",
+    "prerequisite_chapters": [],
+    "concept": "Feature contracts, half-open windows, known zero and unknown history",
+    "expected": "50 / 95; known empty 0; unknown None",
+    "command": ".venv/bin/python -B verify_all.py --chapter 01",
+    "paths": [
+      "chapters01_02/foundations_lab.py",
+      "chapters01_02/test_foundations_lab.py",
+      "chapters01_02/printed_examples.py",
+      "docs/exercises/chapter01.md",
+      "docs/exercises/chapter01-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapters01_02/foundations_lab.py",
+        "name": "spend"
+      },
+      {
+        "path": "chapters01_02/foundations_lab.py",
+        "name": "spend_in_window"
+      }
+    ],
+    "exercise_count": 6,
+    "solution_count": 6,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 2,
+    "title": "Chapter 2 Give every record an identity",
+    "suite": "chapters01_02",
+    "prerequisite_chapters": [
+      1
+    ],
+    "concept": "Source identity, revisions, retries, atomic rejection, tombstones",
+    "expected": "Retry preserves five source revisions; conflicting batch rejected",
+    "command": ".venv/bin/python -B verify_all.py --chapter 02",
+    "paths": [
+      "chapters01_02/foundations_lab.py",
+      "chapters01_02/test_foundations_lab.py",
+      "chapters01_02/printed_examples.py",
+      "docs/exercises/chapter02.md",
+      "docs/exercises/chapter02-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapters01_02/foundations_lab.py",
+        "name": "Revision"
+      },
+      {
+        "path": "chapters01_02/foundations_lab.py",
+        "name": "Delivery"
+      },
+      {
+        "path": "chapters01_02/foundations_lab.py",
+        "name": "ingest"
+      }
+    ],
+    "exercise_count": 7,
+    "solution_count": 7,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 3,
+    "title": "Chapter 3 Reconstruct what was knowable",
+    "suite": "chapter03",
+    "prerequisite_chapters": [
+      1,
+      2
+    ],
+    "concept": "Filter availability before choosing a revision; independent SQL",
+    "expected": "D1 50; D2 95; fixed window known at 610 is 85",
+    "command": ".venv/bin/python -B verify_all.py --chapter 03",
+    "paths": [
+      "chapter03/historical_lab.py",
+      "chapter03/test_historical_lab.py",
+      "chapter03/printed_examples.py",
+      "docs/exercises/chapter03.md",
+      "docs/exercises/chapter03-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter03/historical_lab.py",
+        "name": "reference_selection"
+      },
+      {
+        "path": "chapter03/historical_lab.py",
+        "name": "reference_value"
+      },
+      {
+        "path": "chapter03/historical_lab.py",
+        "name": "sqlite_value"
+      }
+    ],
+    "exercise_count": 8,
+    "solution_count": 8,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 4,
+    "title": "Chapter 4 Build training examples carefully",
+    "suite": "chapter04",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3
+    ],
+    "concept": "One decision per row, label maturity, split and fit boundaries",
+    "expected": "5 rows; D4 excluded; training mean 55; bad/good join 4/2 rows",
+    "command": ".venv/bin/python -B verify_all.py --chapter 04",
+    "paths": [
+      "chapter04/chapter4.py",
+      "chapter04/test_chapter4.py",
+      "chapter04/printed_examples.py",
+      "docs/exercises/chapter04.md",
+      "docs/exercises/chapter04-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter04/chapter4.py",
+        "name": "build_dataset"
+      },
+      {
+        "path": "chapter04/chapter4.py",
+        "name": "label_at"
+      },
+      {
+        "path": "chapter04/chapter4.py",
+        "name": "fit_center"
+      }
+    ],
+    "exercise_count": 6,
+    "solution_count": 6,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 5,
+    "title": "Chapter 5 Choose a late data policy",
+    "suite": "chapter05",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "concept": "Fixed window, inclusive close deadline, full replacements",
+    "expected": "Immediate 50,45,85; delayed 85; sum-of-snapshots error 180",
+    "command": ".venv/bin/python -B verify_all.py --chapter 05",
+    "paths": [
+      "chapter05/chapter5.py",
+      "chapter05/test_chapter5.py",
+      "chapter05/printed_examples.py",
+      "docs/exercises/chapter05.md",
+      "docs/exercises/chapter05-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter05/chapter5.py",
+        "name": "simulate"
+      },
+      {
+        "path": "chapter05/chapter5.py",
+        "name": "latest_outputs"
+      },
+      {
+        "path": "chapter05/chapter5.py",
+        "name": "score"
+      }
+    ],
+    "exercise_count": 7,
+    "solution_count": 7,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 6,
+    "title": "Chapter 6 Keep batch and online features aligned",
+    "suite": "chapter06",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "concept": "Separate publication, store and cache clocks; value plus provenance",
+    "expected": "Raw values None,50,50,50,85,85; numeric policy matches 3/5",
+    "command": ".venv/bin/python -B verify_all.py --chapter 06",
+    "paths": [
+      "chapter06/parity_lab.py",
+      "chapter06/test_parity_lab.py",
+      "chapter06/printed_examples.py",
+      "docs/exercises/chapter06.md",
+      "docs/exercises/chapter06-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter06/parity_lab.py",
+        "name": "StoreTimeline"
+      },
+      {
+        "path": "chapter06/parity_lab.py",
+        "name": "CacheTimeline"
+      },
+      {
+        "path": "chapter06/parity_lab.py",
+        "name": "reconcile"
+      }
+    ],
+    "exercise_count": 8,
+    "solution_count": 8,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 7,
+    "title": "Chapter 7 Backfill without rewriting history",
+    "suite": "chapter07",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "concept": "Immutable dataset identity, resume, release tokens and pinned reads",
+    "expected": "Historical [50,95,0]; corrected [102,112,0]",
+    "command": ".venv/bin/python -B verify_all.py --chapter 07",
+    "paths": [
+      "chapter07/backfill_lab.py",
+      "chapter07/test_backfill_lab.py",
+      "chapter07/printed_examples.py",
+      "docs/exercises/chapter07.md",
+      "docs/exercises/chapter07-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter07/backfill_lab.py",
+        "name": "make_spec"
+      },
+      {
+        "path": "chapter07/backfill_lab.py",
+        "name": "stage_build"
+      },
+      {
+        "path": "chapter07/backfill_lab.py",
+        "name": "publish_dataset"
+      },
+      {
+        "path": "chapter07/backfill_lab.py",
+        "name": "ReleaseRegistry"
+      }
+    ],
+    "exercise_count": 8,
+    "solution_count": 8,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 8,
+    "title": "Chapter 8 Test beyond a happy path",
+    "suite": "chapter08",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "concept": "Independent oracles, metamorphic properties and selected faults",
+    "expected": "Weak suite detects 1/5; diagnostic suite detects 5/5 faults",
+    "command": ".venv/bin/python -B verify_all.py --chapter 08",
+    "paths": [
+      "chapter08/fault_testing_lab.py",
+      "chapter08/test_fault_testing_lab.py",
+      "chapter08/printed_examples.py",
+      "docs/exercises/chapter08.md",
+      "docs/exercises/chapter08-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter08/fault_testing_lab.py",
+        "name": "mutation_report"
+      },
+      {
+        "path": "chapter08/fault_testing_lab.py",
+        "name": "run_suite"
+      },
+      {
+        "path": "chapter08/fault_testing_lab.py",
+        "name": "reference"
+      }
+    ],
+    "exercise_count": 8,
+    "solution_count": 8,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 9,
+    "title": "Chapter 9 Observe quality and control change",
+    "suite": "chapter09",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "concept": "Metric populations, controlled replay, evidence-gated local recovery",
+    "expected": "Raw parity 3/5; wrong consumer 180 vs 85; local recovery 4/4",
+    "command": ".venv/bin/python -B verify_all.py --chapter 09",
+    "paths": [
+      "chapter09/operations_lab.py",
+      "chapter09/test_operations_lab.py",
+      "chapter09/printed_examples.py",
+      "docs/exercises/chapter09.md",
+      "docs/exercises/chapter09-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter09/operations_lab.py",
+        "name": "base_report"
+      },
+      {
+        "path": "chapter09/operations_lab.py",
+        "name": "decide"
+      },
+      {
+        "path": "chapter09/operations_lab.py",
+        "name": "simulate_recovery"
+      }
+    ],
+    "exercise_count": 8,
+    "solution_count": 8,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  },
+  {
+    "chapter": 10,
+    "title": "Chapter 10 Complete the feature pipeline",
+    "suite": "chapter10",
+    "prerequisite_chapters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "concept": "Historical rows, fixed-window policy, serving lineage and retained readback",
+    "expected": "Base D1/D2 50/95; challenge 50/100; closed/audit 90/105",
+    "command": ".venv/bin/python -B verify_all.py --chapter 10",
+    "paths": [
+      "chapter10/capstone_lab.py",
+      "chapter10/test_capstone_lab.py",
+      "chapter10/printed_examples.py",
+      "docs/exercises/chapter10.md",
+      "docs/exercises/chapter10-solutions.md"
+    ],
+    "symbols": [
+      {
+        "path": "chapter10/capstone_lab.py",
+        "name": "build_dataset"
+      },
+      {
+        "path": "chapter10/capstone_lab.py",
+        "name": "publications"
+      },
+      {
+        "path": "chapter10/capstone_lab.py",
+        "name": "persist_run"
+      },
+      {
+        "path": "chapter10/capstone_lab.py",
+        "name": "verify_artifacts"
+      }
+    ],
+    "exercise_count": 8,
+    "solution_count": 8,
+    "prerequisite_lab": "prerequisites/README.md",
+    "prerequisite_command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+    "practice_map": "docs/practice-map.json"
+  }
+]

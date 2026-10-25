@@ -1,0 +1,11 @@
+{
+  "copied_without_modification": true,
+  "sha256": {
+    "fixtures/base.json": "0a063cdfe48d7fe4ad4b7b17ee274be7d11b0b77d35a2a348b47c6971302b983",
+    "fixtures/deletion_extension.json": "3819861ac5d46a935f0324d7d9e44f31e4da9aa8b0ac1e263da52d20782e848e",
+    "fixtures/restoration_extension.json": "f1b3cee424852661f896c742d863ccf61597889162b8b65431b640b64ceb3230",
+    "foundations_lab.py": "3bbf4b75f430456d9bd5ad2caafcf34f05d38a77a8f4c11c75075eae0aab628a"
+  },
+  "source": "Book 1, Chapters 1 and 2 foundations lab, unchanged local project source",
+  "source_locator": "book1-foundations/lab"
+}

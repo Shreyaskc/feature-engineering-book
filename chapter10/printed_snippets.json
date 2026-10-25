@@ -1,0 +1,56 @@
+[
+  {
+    "id": "continuity",
+    "title": "Keep the earlier delayed trace",
+    "code": "from capstone_lab import continuity_report\nreport = continuity_report()\nprint(report[\"raw_values\"])\nprint(report[\"policy_values\"])\nprint(report[\"source_values\"])\n",
+    "expected_stdout": "[None, 50, 50, 50, 85, 85]\n[50, 50, 45, 85, 85, 85]\n[50, 50, 45, 85, 85, 100]\n"
+  },
+  {
+    "id": "historical_rows",
+    "title": "Build historical rows with lineage",
+    "code": "from capstone_lab import build_dataset, load_case\nrows = build_dataset(load_case())\nfor row in rows:\n    print(row[\"row_id\"], row[\"source_cutoff\"], row[\"value\"],\n          row[\"source_versions\"])\n",
+    "expected_stdout": "D1 600 50 [['A', 1], ['C', 1]]\nD2 610 95 [['A', 1], ['B', 1], ['C', 2], ['D', 1]]\nZ1 600 0 []\nU1 600 None []\n"
+  },
+  {
+    "id": "publication_timeline",
+    "title": "Inspect full publication snapshots",
+    "code": "from capstone_lab import load_case, publications\nfor row in publications(load_case()):\n    print(row.revision, row.published_at, row.value)\n",
+    "expected_stdout": "1 600 50\n2 605 45\n3 607 85\n"
+  },
+  {
+    "id": "serving_values",
+    "title": "Compare the two online consumers",
+    "code": "from capstone_lab import load_case, online_lookups\nfor mode in (\"snapshot_baseline\", \"contract_pipeline\"):\n    rows = online_lookups(load_case(), mode)\n    print(mode, [row[\"raw_value\"] for row in rows])\n",
+    "expected_stdout": "snapshot_baseline [None, 50, 95, 95, 180, 180]\ncontract_pipeline [None, 50, 45, 45, 85, 85]\n"
+  },
+  {
+    "id": "comparison_metrics",
+    "title": "Keep the denominator visible",
+    "code": "from capstone_lab import compare, load_case\nmetrics = compare(load_case())[\"implementations\"]\nfor mode, values in metrics.items():\n    historical = values[\"historical\"][\"numeric_parity\"]\n    online = values[\"online\"][\"raw_policy_parity\"]\n    print(mode)\n    for measure in (historical, online):\n        print(measure[\"numerator\"], measure[\"denominator\"],\n              measure[\"excluded\"], measure[\"population\"])\n",
+    "expected_stdout": "snapshot_baseline\n1 3 1 4\n1 5 1 6\ncontract_pipeline\n3 3 1 4\n5 5 1 6\n"
+  },
+  {
+    "id": "manifest_readback",
+    "title": "Persist and verify retained artifacts",
+    "code": "import json\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom capstone_lab import load_case, persist_run, verify_artifacts\nwith TemporaryDirectory() as directory:\n    path = Path(directory) / \"run\"\n    written = persist_run(load_case(), path)\n    checked = verify_artifacts(path)\n    manifest = json.loads((path / \"manifest.json\").read_text())\n    print(written == checked, checked[\"artifacts_verified\"])\n    print(manifest[\"training_boundary\"][\"artifact_kind\"])\n",
+    "expected_stdout": "True 9\nfeature_dataset_only\n"
+  },
+  {
+    "id": "replay_invariance",
+    "title": "Replay reordered source deliveries",
+    "code": "from dataclasses import replace\nfrom random import Random\nfrom capstone_lab import load_case, run_case\nfrom foundations_lab import Ledger\ncase = load_case(\"challenge\")\nrows = list(case.ledger.deliveries) * 3\nRandom(1010).shuffle(rows)\nreplayed = replace(case, ledger=Ledger(tuple(rows)))\nprint(run_case(case) == run_case(replayed))\n",
+    "expected_stdout": "True\n"
+  },
+  {
+    "id": "tamper_rejection",
+    "title": "Reject corrupted retained content",
+    "code": "import json\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom capstone_lab import CapstoneError, canonical, load_case\nfrom capstone_lab import persist_run, verify_artifacts\nwith TemporaryDirectory() as directory:\n    path = Path(directory) / \"run\"\n    persist_run(load_case(), path)\n    file = path / \"improved_dataset.json\"\n    rows = json.loads(file.read_text())\n    rows[0][\"value\"] = 51\n    file.write_text(canonical(rows))\n    try:\n        verify_artifacts(path)\n    except CapstoneError as error:\n        assert str(error).startswith(\"artifact content mismatch:\")\n        print(error)\n    else:\n        raise AssertionError(\"corruption went undetected\")\n",
+    "expected_stdout": "artifact content mismatch: improved_dataset.json\n"
+  },
+  {
+    "id": "challenge",
+    "title": "Run the isolated correction challenge",
+    "code": "from capstone_lab import audit_report, build_dataset, load_case\nfrom capstone_lab import publications\ncase = load_case(\"challenge\")\nprint([row[\"value\"] for row in build_dataset(case)[:2]])\nprint([(row.published_at, row.value) for row in publications(case)])\naudit = audit_report(case)\nprint(audit[\"closed_policy_value\"], audit[\"audit_source_value\"])\n",
+    "expected_stdout": "[50, 100]\n[(600, 50), (604, 48), (605, 43), (606, 50), (607, 90)]\n90 105\n"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "coverage_cases": {
+    "arrival_order_differs_from_revision_order": 145,
+    "deletions": 147,
+    "distinct_delivery_retries": 147,
+    "empty_histories": 13,
+    "equal_availability_revisions": 147,
+    "exact_delivery_replays": 147,
+    "out_of_order_input": 147,
+    "restorations": 49,
+    "revision_gaps": 147,
+    "zero_amount_upserts": 118
+  },
+  "generated_cases": 160,
+  "generated_data": {
+    "canonical_deliveries": 3722,
+    "canonical_source_versions": 1874,
+    "case_cutoff_pairs": 2302,
+    "distinct_retry_deliveries": 1848,
+    "distinct_source_histories": 148,
+    "exact_delivery_replay_observations": 956,
+    "input_delivery_observations": 4678
+  },
+  "generated_input_sha256": "c3afebcb5e673e72b8b3f6d46ea72b1ea8936cb9e04a7b48e557d93ae8456c04",
+  "rejected_corruptions": {
+    "availability_regression": 147,
+    "delivery_id_conflict": 147,
+    "entity_change": 147,
+    "event_time_change": 147,
+    "restore_without_permission": 98,
+    "source_version_conflict": 147
+  },
+  "scope": "Finite synthetic standard-library checks; not a proof or production deployment test.",
+  "seed": 20261003,
+  "status": "passed",
+  "successful_comparisons": {
+    "accepted_ingest_snapshot_preservation": 3000,
+    "batch_chunking_invariance": 320,
+    "canonical_history_comparisons": 1280,
+    "delivery_ledger_comparisons": 1280,
+    "distinct_retry_history_invariance": 160,
+    "distinct_retry_retention": 160,
+    "exact_retry_invariance": 160,
+    "explicit_known_empty_check": 1,
+    "explicit_unknown_empty_check": 1,
+    "history_order_invariance": 2302,
+    "input_order_invariance": 480,
+    "known_history_window_comparisons": 47212,
+    "rejected_ingest_snapshot_preservation": 833,
+    "retry_selection_invariance": 2302,
+    "retry_spend_invariance": 13766,
+    "rolling_window_reference_comparisons": 13766,
+    "selection_reference_comparisons": 2302,
+    "unknown_history_window_comparisons": 47212
+  },
+  "total_rejected_corruptions": 833,
+  "total_successful_comparisons": 136537
+}

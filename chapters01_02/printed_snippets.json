@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ch1_contract",
+    "chapter": 1,
+    "title": "The original decision",
+    "code": "from foundations_lab import load_fixture, spend\n\nledger = load_fixture()\nprint(spend(ledger.history, \"C1\", decision_at=600,\n            history_known=True))\nprint(spend(ledger.history, \"C1\", decision_at=610,\n            history_known=True))\n",
+    "expected_stdout": "50\n95\n"
+  },
+  {
+    "id": "ch1_boundaries",
+    "chapter": 1,
+    "title": "The lower and upper boundaries",
+    "code": "from foundations_lab import Revision, load_fixture, spend\n\nbase = load_fixture().history\nlower = Revision(\"K\", 1, \"C1\", 540, 541, 5)\nupper = Revision(\"L\", 1, \"C1\", 600, 600, 7)\nprint(spend(base + (lower,), \"C1\", decision_at=600))\nprint(spend(base + (upper,), \"C1\", decision_at=600))\n",
+    "expected_stdout": "55\n50\n"
+  },
+  {
+    "id": "ch1_missing",
+    "chapter": 1,
+    "title": "Known empty and unknown history",
+    "code": "from foundations_lab import load_fixture, spend\n\nhistory = load_fixture().history\nprint(spend(history, \"C9\", decision_at=600,\n            history_known=True))\nprint(spend(history, \"C1\", decision_at=600,\n            history_known=False))\n",
+    "expected_stdout": "0\nNone\n"
+  },
+  {
+    "id": "ch2_retry",
+    "chapter": 2,
+    "title": "A delivery retry preserves source availability",
+    "code": "from foundations_lab import Delivery, ingest, load_fixture, spend\n\nledger = load_fixture()\na1 = ledger.history[0]\nretry = Delivery(\"a1-retry\", a1, delivered_at=609)\nreplayed = ingest(ledger, [retry])\nprint(len(replayed.deliveries), len(replayed.history))\nprint(replayed.history[0].available_at)\nprint(spend(replayed.history, \"C1\", decision_at=600))\n",
+    "expected_stdout": "6 5\n551\n50\n"
+  },
+  {
+    "id": "ch2_atomic",
+    "chapter": 2,
+    "title": "Reject the whole candidate batch",
+    "code": "from dataclasses import replace\nfrom foundations_lab import ContractError, Delivery, ingest\nfrom foundations_lab import Revision, load_fixture\n\nledger = load_fixture()\nbefore = ledger\nnew = Delivery(\"n1\", Revision(\"N\", 1, \"C1\", 590, 591, 2), 591)\nconflict = Delivery(\"a1-bad\", replace(ledger.history[0], amount=21), 610)\ntry:\n    ledger = ingest(ledger, [new, conflict])\nexcept ContractError:\n    print(\"ContractError\")\nprint(ledger is before)\n",
+    "expected_stdout": "ContractError\nTrue\n"
+  },
+  {
+    "id": "ch2_replay",
+    "chapter": 2,
+    "title": "Replay order does not choose the revision",
+    "code": "from foundations_lab import Ledger, ingest, load_fixture, spend\n\noriginal = load_fixture()\nduplicated = ingest(original, original.deliveries)\nprint(duplicated == original)\nreplayed = ingest(Ledger(), reversed(original.deliveries))\nprint(replayed == original)\nprint(spend(replayed.history, \"C1\", decision_at=610))\n",
+    "expected_stdout": "True\nTrue\n95\n"
+  },
+  {
+    "id": "ch2_delete",
+    "chapter": 2,
+    "title": "A tombstone changes only eligible later queries",
+    "code": "from foundations_lab import load_fixture, spend, spend_in_window\n\nhistory = load_fixture(\"deletion_extension\").history\nprint(spend(history, \"C1\", decision_at=600))\nprint(spend(history, \"C1\", decision_at=610))\nprint(spend_in_window(history, \"C1\", window_start=540,\n                      window_end=600, known_at=620))\n",
+    "expected_stdout": "50\n95\n60\n"
+  },
+  {
+    "id": "ch2_restore",
+    "chapter": 2,
+    "title": "Restoration requires an explicit ledger contract",
+    "code": "from foundations_lab import Delivery, Ledger, Revision, ingest\nfrom foundations_lab import load_fixture, spend_in_window\n\nledger = Ledger(allow_restore=True)\nledger = ingest(ledger, load_fixture(\"deletion_extension\").deliveries)\nrestore = Revision(\"C\", 4, \"C1\", 585, 620, 28)\nledger = ingest(ledger, [Delivery(\"c4\", restore, 620)])\nprint(spend_in_window(ledger.history, \"C1\", window_start=540,\n                      window_end=600, known_at=620))\n",
+    "expected_stdout": "88\n"
+  }
+]

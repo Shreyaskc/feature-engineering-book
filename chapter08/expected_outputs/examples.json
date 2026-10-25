@@ -1,0 +1,154 @@
+{
+  "blind_spots": {
+    "constant_zero_probe_outside_mutant_registry": {
+      "hand_calculated": "ASSERTION_FAILED",
+      "later_info_invariance": "PASS",
+      "nonnegative_integer": "PASS",
+      "replayed_input": "PASS",
+      "shuffled_input": "PASS",
+      "unknown_coverage": "ASSERTION_FAILED"
+    },
+    "limits": "A constant function passes these three invariance relations. Numeric anchors and explicit unknown-coverage assertions expose it. This probe is outside the five-mutant denominator.",
+    "unknown_is_not_zero": {
+      "arithmetic_only_suite_exercises_unknown_coverage": false,
+      "known_empty": 0,
+      "unknown_empty": null,
+      "unknown_partial": null
+    },
+    "weak_suite_missed_count_deliveries": {
+      "D1_mutant": 50,
+      "D2_mutant": 125,
+      "D2_reference": 95,
+      "weak_passed": true
+    }
+  },
+  "five_fault_witnesses": {
+    "M1_D1": 20,
+    "M2_D2": 125,
+    "M3_D1_plus_upper": 57,
+    "M4_reversed_D2": 100,
+    "M5_missing_B_available_at": 90
+  },
+  "fixed_window_later_knowledge": {
+    "604": 50,
+    "605": 45,
+    "606": 45,
+    "607": 85
+  },
+  "matrix": {
+    "d1_happy_path": {
+      "M1_latest_before_cutoff": "ASSERTION_FAILED",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "half_open_boundary": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "ASSERTION_FAILED",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "hand_calculated": {
+      "M1_latest_before_cutoff": "ASSERTION_FAILED",
+      "M2_count_deliveries": "ASSERTION_FAILED",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "later_info_invariance": {
+      "M1_latest_before_cutoff": "ASSERTION_FAILED",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "nonnegative_integer": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "replayed_input": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "ASSERTION_FAILED",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "shuffled_input": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "ASSERTION_FAILED",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    },
+    "source_schema": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "ASSERTION_FAILED",
+      "reference": "PASS"
+    },
+    "unknown_coverage": {
+      "M1_latest_before_cutoff": "PASS",
+      "M2_count_deliveries": "PASS",
+      "M3_inclusive_upper": "PASS",
+      "M4_input_order_latest": "PASS",
+      "M5_infer_availability": "PASS",
+      "reference": "PASS"
+    }
+  },
+  "reference": {
+    "D1": 50,
+    "D2": 95
+  },
+  "schema_reference": {
+    "bool_available_at": "ContractError",
+    "bool_revision": "ContractError",
+    "conflicting_source_revision": "ContractError",
+    "missing_available_at": "ContractError",
+    "null_available_at": "ContractError",
+    "string_available_at": "ContractError",
+    "unexpected_record_field": "ContractError"
+  },
+  "scope": "source-availability reference, not a claim about the value actually served",
+  "suite_results": {
+    "diagnostic": {
+      "detected": [
+        "M1_latest_before_cutoff",
+        "M2_count_deliveries",
+        "M3_inclusive_upper",
+        "M4_input_order_latest",
+        "M5_infer_availability"
+      ],
+      "detected_count": 5,
+      "survived": [],
+      "total_selected_mutants": 5
+    },
+    "weak": {
+      "detected": [
+        "M1_latest_before_cutoff"
+      ],
+      "detected_count": 1,
+      "survived": [
+        "M2_count_deliveries",
+        "M3_inclusive_upper",
+        "M4_input_order_latest",
+        "M5_infer_availability"
+      ],
+      "total_selected_mutants": 5
+    }
+  },
+  "why_monotonicity_is_invalid": "The window stays [540,600). C2 reduces C from30 to25 at605; B adds40 at607. Later knowledge does not imply nondecreasing spend."
+}

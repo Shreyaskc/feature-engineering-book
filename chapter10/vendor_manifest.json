@@ -1,0 +1,30 @@
+{
+  "files": {
+    "fixtures/base.json": {
+      "modified": false,
+      "origin": "Book 1 foundations lab",
+      "sha256": "0a063cdfe48d7fe4ad4b7b17ee274be7d11b0b77d35a2a348b47c6971302b983"
+    },
+    "fixtures/deletion_extension.json": {
+      "modified": false,
+      "origin": "Book 1 foundations lab",
+      "sha256": "3819861ac5d46a935f0324d7d9e44f31e4da9aa8b0ac1e263da52d20782e848e"
+    },
+    "fixtures/restoration_extension.json": {
+      "modified": false,
+      "origin": "Book 1 foundations lab",
+      "sha256": "f1b3cee424852661f896c742d863ccf61597889162b8b65431b640b64ceb3230"
+    },
+    "foundations_lab.py": {
+      "modified": false,
+      "origin": "Book 1 foundations lab",
+      "sha256": "3bbf4b75f430456d9bd5ad2caafcf34f05d38a77a8f4c11c75075eae0aab628a"
+    },
+    "parity_lab.py": {
+      "modified": false,
+      "origin": "Book 1 corrected Chapter 6 standalone source, book1-chapter6/lab/parity_lab.py; revision 2026-10-05-metadata-v2",
+      "sha256": "1bd7fa504b465f1005cef7715ff7cd71a706e593fb0fa5d3308c6b30ad9a251e"
+    }
+  },
+  "schema_version": 1
+}

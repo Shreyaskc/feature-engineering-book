@@ -1,0 +1,91 @@
+[
+  {
+    "listing": 1,
+    "result": {
+      "fixed": 85,
+      "rolling": 95
+    },
+    "title": "Fixed means fixed"
+  },
+  {
+    "listing": 2,
+    "result": {
+      "late": [
+        [
+          "E",
+          1
+        ]
+      ],
+      "published": [
+        [
+          1,
+          600,
+          50
+        ],
+        [
+          2,
+          605,
+          45
+        ],
+        [
+          3,
+          607,
+          85
+        ]
+      ]
+    },
+    "title": "Policy publication is a source calculation"
+  },
+  {
+    "listing": 3,
+    "result": {
+      "missing": true,
+      "model": 0,
+      "raw": null,
+      "reason": "cache_miss"
+    },
+    "title": "A missing cell and its fallback"
+  },
+  {
+    "listing": 4,
+    "result": {
+      "flags": [
+        "materialization_lag",
+        "cache_lag",
+        "numeric_mismatch"
+      ],
+      "request": "R3"
+    },
+    "title": "Two lag causes at one request"
+  },
+  {
+    "listing": 5,
+    "result": {
+      "flags": [
+        "provenance_mismatch"
+      ],
+      "numeric_match": true
+    },
+    "title": "The same number with the wrong revision"
+  },
+  {
+    "listing": 6,
+    "result": {
+      "absent": [
+        "value_revision"
+      ],
+      "full_match": null
+    },
+    "title": "Missing evidence is unverifiable"
+  },
+  {
+    "listing": 7,
+    "result": {
+      "integer_match": false,
+      "missing_is_numeric_match": false,
+      "near_zero_inside": true,
+      "near_zero_outside": false
+    },
+    "title": "Finite floating-point tolerance is an explicit choice"
+  }
+]

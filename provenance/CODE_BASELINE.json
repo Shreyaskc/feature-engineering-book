@@ -1,0 +1,8 @@
+{
+  "path": "provenance/companion-code-baseline.zip",
+  "sha256": "69bfd27af4ed665ce78e09ac9eea07b75092a1d27ed7f09b7156bf0806384e25",
+  "members": 160,
+  "scope": "User-owned code, synthetic fixture/expected contracts and the required chapter06 baseline source manifest only; raw run reports, environment observations, generated duplicates and prose excluded.",
+  "active_files": "LAB_FILES.json",
+  "differences": "UPSTREAM_DIFF.json"
+}

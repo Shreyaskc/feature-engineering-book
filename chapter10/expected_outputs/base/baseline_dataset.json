@@ -1,0 +1,92 @@
+[
+  {
+    "customer_id": "C1",
+    "decision_at": 600,
+    "definition_id": "known_spend_60m_v1",
+    "history_known": true,
+    "missing": false,
+    "row_id": "D1",
+    "source_cutoff": 620,
+    "source_versions": [
+      [
+        "A",
+        1
+      ],
+      [
+        "B",
+        1
+      ],
+      [
+        "C",
+        2
+      ],
+      [
+        "E",
+        1
+      ]
+    ],
+    "value": 100,
+    "window_end": 600,
+    "window_start": 540
+  },
+  {
+    "customer_id": "C1",
+    "decision_at": 610,
+    "definition_id": "known_spend_60m_v1",
+    "history_known": true,
+    "missing": false,
+    "row_id": "D2",
+    "source_cutoff": 620,
+    "source_versions": [
+      [
+        "A",
+        1
+      ],
+      [
+        "B",
+        1
+      ],
+      [
+        "C",
+        2
+      ],
+      [
+        "D",
+        1
+      ],
+      [
+        "E",
+        1
+      ]
+    ],
+    "value": 110,
+    "window_end": 610,
+    "window_start": 550
+  },
+  {
+    "customer_id": "C9",
+    "decision_at": 600,
+    "definition_id": "known_spend_60m_v1",
+    "history_known": true,
+    "missing": false,
+    "row_id": "Z1",
+    "source_cutoff": 620,
+    "source_versions": [],
+    "value": 0,
+    "window_end": 600,
+    "window_start": 540
+  },
+  {
+    "customer_id": "C1",
+    "decision_at": 600,
+    "definition_id": "known_spend_60m_v1",
+    "history_known": false,
+    "missing": true,
+    "row_id": "U1",
+    "source_cutoff": 620,
+    "source_versions": [],
+    "value": null,
+    "window_end": 600,
+    "window_start": 540
+  }
+]

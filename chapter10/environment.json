@@ -1,0 +1,11 @@
+{
+  "dependencies": "standard library only",
+  "external_services": false,
+  "implementation": "CPython",
+  "language_target": "Python 3.12",
+  "network_required": false,
+  "numeric_model": "nonnegative integer synthetic spend units",
+  "other_runtimes": "not validated",
+  "time_model": "integer synthetic minutes",
+  "verified_python_version": "3.12.14"
+}

@@ -1,0 +1,104 @@
+{
+  "corrected_view_continuity": {
+    "at_cutoff_620": [
+      100,
+      110,
+      0
+    ],
+    "at_cutoff_640": [
+      102,
+      112,
+      0
+    ],
+    "d1_after_B_revision_2_at_640": 102,
+    "d1_late_E_reference_at_620": 100,
+    "original_event_windows": {
+      "D1": [
+        540,
+        600
+      ],
+      "D2": [
+        550,
+        610
+      ],
+      "X1": [
+        550,
+        610
+      ]
+    }
+  },
+  "distinct_dataset_identities": 4,
+  "equal_historical_values_different_identity": true,
+  "fixture_values": {
+    "baseline": [
+      50,
+      95,
+      0
+    ],
+    "corrected": [
+      102,
+      112,
+      0
+    ],
+    "extended_historical": [
+      50,
+      95,
+      0
+    ],
+    "new_definition": [
+      30,
+      35,
+      0
+    ]
+  },
+  "pinned_experiment": {
+    "dataset_bytes_unchanged": true,
+    "identity_unchanged": true,
+    "values": [
+      50,
+      95,
+      0
+    ]
+  },
+  "release": {
+    "audit_actions": [
+      "promote",
+      "promote",
+      "rollback",
+      "promote",
+      "promote"
+    ],
+    "corrected_generation": 1,
+    "corrected_into_historical_rejected": true,
+    "historical_30m_generation": 1,
+    "historical_generations": [
+      1,
+      2,
+      3
+    ],
+    "new_window_into_old_channel_rejected": true,
+    "rollback_restored_dataset_identity": true,
+    "stale_aba_token_rejected": true
+  },
+  "source_version_counts": {
+    "baseline": 5,
+    "corrected": 7,
+    "extended_historical": 7,
+    "new_definition": 7
+  },
+  "staging": {
+    "first_complete": false,
+    "first_next_index": 1,
+    "published_rows": 3,
+    "replay_unchanged": true,
+    "resumed_complete": true,
+    "resumed_next_index": 3
+  },
+  "status": "passed",
+  "unknown_coverage_changes_identity": true,
+  "unknown_coverage_values": [
+    50,
+    95,
+    null
+  ]
+}

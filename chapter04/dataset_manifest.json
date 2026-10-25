@@ -1,0 +1,48 @@
+{
+  "dataset_version": "synthetic-ch04-v1",
+  "grain": "one decision",
+  "primary_key": "decision_id",
+  "feature": "known_spend_60m_v1",
+  "feature_window": "[decision_time-60, decision_time)",
+  "feature_availability": "available_at <= decision_time",
+  "label": "any confirmed adverse outcome for this decision",
+  "label_window": "(decision_time, decision_time+120]",
+  "label_finalization": "immutable source certificate; no retractions",
+  "fit_time": 1200,
+  "evaluation_interval": [
+    1200,
+    1400
+  ],
+  "evaluation_upper_exclusive": true,
+  "extract_time": 1500,
+  "train_ids": [
+    "D1",
+    "D2",
+    "D3"
+  ],
+  "validation_ids": [
+    "D5",
+    "D6"
+  ],
+  "excluded": [
+    [
+      "D4",
+      "label not mature at cutoff"
+    ]
+  ],
+  "preprocessing_mean": 55,
+  "source_fixture": "chapter4.py constants; synthetic only",
+  "source_sha256": "f36a21aeab0e98936d6b03c4bc02a3798240e72f6188b7b5e1d8365ac9561080",
+  "event_identity": [
+    "customer",
+    "event",
+    "version"
+  ],
+  "revision_policy": "highest eligible version; fixed customer and event time",
+  "entity_policy": "future mixture of returning and new customers",
+  "preprocessing_policy": "fit on training values only; freeze for validation",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "history_complete": "assumed true for fixture at each decision",
+  "scope": "toy reference, no performance or deployment claims"
+}

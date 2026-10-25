@@ -1,0 +1,342 @@
+{
+  "base": {
+    "immediate_then_correct": {
+      "outputs": [
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 1,
+          "emitted_at": 600,
+          "input_cutoff": 600,
+          "total": 50,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "C",
+              1,
+              30,
+              586
+            ]
+          ]
+        },
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 2,
+          "emitted_at": 605,
+          "input_cutoff": 605,
+          "total": 45,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "C",
+              2,
+              25,
+              605
+            ]
+          ]
+        },
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 3,
+          "emitted_at": 607,
+          "input_cutoff": 607,
+          "total": 85,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "B",
+              1,
+              40,
+              607
+            ],
+            [
+              "C",
+              2,
+              25,
+              605
+            ]
+          ]
+        }
+      ],
+      "first": {
+        "window_age": 0,
+        "identities_seen": 2,
+        "matching_latest_versions": 1,
+        "audit_identities": 3,
+        "identity_coverage": 0.6666666666666666,
+        "latest_version_agreement": 0.3333333333333333,
+        "absolute_aggregate_difference": 35,
+        "audit_total": 85
+      },
+      "last": {
+        "window_age": 7,
+        "identities_seen": 3,
+        "matching_latest_versions": 3,
+        "audit_identities": 3,
+        "identity_coverage": 1.0,
+        "latest_version_agreement": 1.0,
+        "absolute_aggregate_difference": 0,
+        "audit_total": 85
+      },
+      "correction_outputs": 2,
+      "reconciliation": [],
+      "closed_at": 610
+    },
+    "wait_then_freeze": {
+      "outputs": [
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "wait_then_freeze",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 1,
+          "emitted_at": 610,
+          "input_cutoff": 610,
+          "total": 85,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "B",
+              1,
+              40,
+              607
+            ],
+            [
+              "C",
+              2,
+              25,
+              605
+            ]
+          ]
+        }
+      ],
+      "first": {
+        "window_age": 10,
+        "identities_seen": 3,
+        "matching_latest_versions": 3,
+        "audit_identities": 3,
+        "identity_coverage": 1.0,
+        "latest_version_agreement": 1.0,
+        "absolute_aggregate_difference": 0,
+        "audit_total": 85
+      },
+      "last": {
+        "window_age": 10,
+        "identities_seen": 3,
+        "matching_latest_versions": 3,
+        "audit_identities": 3,
+        "identity_coverage": 1.0,
+        "latest_version_agreement": 1.0,
+        "absolute_aggregate_difference": 0,
+        "audit_total": 85
+      },
+      "correction_outputs": 0,
+      "reconciliation": [],
+      "closed_at": 610
+    }
+  },
+  "after_deadline": {
+    "immediate_then_correct": {
+      "outputs": [
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 1,
+          "emitted_at": 600,
+          "input_cutoff": 600,
+          "total": 50,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "C",
+              1,
+              30,
+              586
+            ]
+          ]
+        },
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 2,
+          "emitted_at": 605,
+          "input_cutoff": 605,
+          "total": 45,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "C",
+              2,
+              25,
+              605
+            ]
+          ]
+        },
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 3,
+          "emitted_at": 607,
+          "input_cutoff": 607,
+          "total": 85,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "B",
+              1,
+              40,
+              607
+            ],
+            [
+              "C",
+              2,
+              25,
+              605
+            ]
+          ]
+        }
+      ],
+      "first": {
+        "window_age": 0,
+        "identities_seen": 2,
+        "matching_latest_versions": 1,
+        "audit_identities": 4,
+        "identity_coverage": 0.5,
+        "latest_version_agreement": 0.25,
+        "absolute_aggregate_difference": 50,
+        "audit_total": 100
+      },
+      "last": {
+        "window_age": 7,
+        "identities_seen": 3,
+        "matching_latest_versions": 3,
+        "audit_identities": 4,
+        "identity_coverage": 0.75,
+        "latest_version_agreement": 0.75,
+        "absolute_aggregate_difference": 15,
+        "audit_total": 100
+      },
+      "correction_outputs": 2,
+      "reconciliation": [
+        "e1"
+      ],
+      "closed_at": 610
+    },
+    "wait_then_freeze": {
+      "outputs": [
+        {
+          "feature_id": "known_spend_fixed_window_v1",
+          "policy_id": "wait_then_freeze",
+          "entity": "C1",
+          "window_start": 540,
+          "window_end": 600,
+          "revision": 1,
+          "emitted_at": 610,
+          "input_cutoff": 610,
+          "total": 85,
+          "contributions": [
+            [
+              "A",
+              1,
+              20,
+              551
+            ],
+            [
+              "B",
+              1,
+              40,
+              607
+            ],
+            [
+              "C",
+              2,
+              25,
+              605
+            ]
+          ]
+        }
+      ],
+      "first": {
+        "window_age": 10,
+        "identities_seen": 3,
+        "matching_latest_versions": 3,
+        "audit_identities": 4,
+        "identity_coverage": 0.75,
+        "latest_version_agreement": 0.75,
+        "absolute_aggregate_difference": 15,
+        "audit_total": 100
+      },
+      "last": {
+        "window_age": 10,
+        "identities_seen": 3,
+        "matching_latest_versions": 3,
+        "audit_identities": 4,
+        "identity_coverage": 0.75,
+        "latest_version_agreement": 0.75,
+        "absolute_aggregate_difference": 15,
+        "audit_total": 100
+      },
+      "correction_outputs": 0,
+      "reconciliation": [
+        "e1"
+      ],
+      "closed_at": 610
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "snippets": [
+    {
+      "id": "ch3_01",
+      "status": "passed",
+      "stdout": "50\n95\n85\n"
+    },
+    {
+      "id": "ch3_02",
+      "status": "passed",
+      "stdout": "600 [('A', 1), ('C', 1)]\n610 [('A', 1), ('B', 1), ('C', 2), ('D', 1)]\noutside event window\n"
+    },
+    {
+      "id": "ch3_03",
+      "status": "passed",
+      "stdout": "50\n20\n85\n"
+    },
+    {
+      "id": "ch3_04",
+      "status": "passed",
+      "stdout": "604 50\n605 45\n607 85\n"
+    },
+    {
+      "id": "ch3_05",
+      "status": "passed",
+      "stdout": "50\n"
+    },
+    {
+      "id": "ch3_06",
+      "status": "passed",
+      "stdout": "[('C', 3, 'delete')]\n60 60\n50\n"
+    },
+    {
+      "id": "ch3_07",
+      "status": "passed",
+      "stdout": "True\n619 60 60\n620 88 88\n"
+    },
+    {
+      "id": "ch3_08",
+      "status": "passed",
+      "stdout": "0 0\nNone None\n"
+    },
+    {
+      "id": "ch3_09",
+      "status": "passed",
+      "stdout": "True\nTrue\n50\n"
+    }
+  ],
+  "snippets_executed": 9
+}

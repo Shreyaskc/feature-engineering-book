@@ -1,0 +1,75 @@
+{
+  "metrics": {
+    "policy_full": {
+      "evaluable": 6,
+      "excluded": 0,
+      "matches": 3
+    },
+    "policy_numeric": {
+      "evaluable": 6,
+      "excluded": 0,
+      "matches": 3
+    },
+    "policy_provenance": {
+      "evaluable": 6,
+      "excluded": 0,
+      "matches": 3
+    },
+    "raw_policy_numeric": {
+      "evaluable": 5,
+      "excluded": 1,
+      "matches": 3
+    },
+    "raw_source_numeric": {
+      "evaluable": 5,
+      "excluded": 1,
+      "matches": 2
+    },
+    "trace_logging": {
+      "evaluable": 6,
+      "excluded": 0,
+      "matches": 6
+    }
+  },
+  "policy_values": [
+    50,
+    50,
+    45,
+    85,
+    85,
+    85
+  ],
+  "raw_values": [
+    null,
+    50,
+    50,
+    50,
+    85,
+    85
+  ],
+  "request_ids": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5"
+  ],
+  "request_times": [
+    600,
+    602,
+    606,
+    608,
+    610,
+    620
+  ],
+  "scope": "Unchanged Chapter 6 trace with delayed store and cache",
+  "source_values": [
+    50,
+    50,
+    45,
+    85,
+    85,
+    100
+  ]
+}

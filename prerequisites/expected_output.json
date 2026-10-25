@@ -1,0 +1,34 @@
+{
+  "absence": {
+    "is_missing": [false, true, false, false],
+    "truthiness": [false, false, false, true],
+    "types": ["int", "NoneType", "bool", "int"],
+    "zero_equals_false": true
+  },
+  "book_refresher_examples": {
+    "refresher_python_values": {"returncode": 0, "stdout": "[False, True, False]\nTrue\n"},
+    "refresher_sql_filtering": {"returncode": 0, "stdout": "50\n"}
+  },
+  "boundaries": {
+    "base": 50,
+    "lower_boundary_included": 55,
+    "upper_boundary_excluded": 50,
+    "available_exactly_cutoff": 55,
+    "available_after_cutoff": 50
+  },
+  "fixture_assertion": "base total 20 + 30 = 50",
+  "immutable_record": {
+    "assignment_rejected": true,
+    "original_amount": 20,
+    "replacement_amount": 25,
+    "original_unchanged": true
+  },
+  "sql_previews": {
+    "wrong_customer_join_rows": 4,
+    "decision_join_rows": 2,
+    "decision_values": [["D1", 50], ["D2", 95]],
+    "latest_eligible_fixed_at_600": 50,
+    "wrong_rank_before_availability": 20,
+    "latest_eligible_fixed_at_610": 85
+  }
+}

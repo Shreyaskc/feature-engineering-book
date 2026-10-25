@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ch8_numeric_anchors",
+    "chapter": 8,
+    "code": "from fault_testing_lab import Query, base_fixture, evaluate\n\nprint(evaluate(base_fixture(), Query(decision_at=600)))\nprint(evaluate(base_fixture(), Query(decision_at=610)))\n",
+    "expected_stdout": "50\n95\n"
+  },
+  {
+    "id": "ch8_weak_suite",
+    "chapter": 8,
+    "code": "from fault_testing_lab import Query, base_fixture, evaluate, run_suite\n\nmutant = \"M2_count_deliveries\"\nprint(run_suite(mutant, suite=\"weak\")[\"passed\"])\nfor cutoff in (600, 610):\n    value = evaluate(base_fixture(), Query(decision_at=cutoff),\n                     implementation=mutant)\n    print(cutoff, value)\n",
+    "expected_stdout": "True\n600 50\n610 125\n"
+  },
+  {
+    "id": "ch8_schema_fail_closed",
+    "chapter": 8,
+    "code": "from foundations_lab import ContractError\nfrom fault_testing_lab import evaluate, malformed_cases\n\ncases = malformed_cases()\nfor name in (\"missing\", \"null\", \"bool\"):\n    try:\n        evaluate(cases[name + \"_available_at\"])\n    except ContractError:\n        print(name, \"rejected\")\nprint(evaluate(cases[\"missing_available_at\"],\n               implementation=\"M5_infer_availability\"))\n",
+    "expected_stdout": "missing rejected\nnull rejected\nbool rejected\n90\n"
+  },
+  {
+    "id": "ch8_shuffled_input",
+    "chapter": 8,
+    "code": "from fault_testing_lab import Query, base_fixture, evaluate\n\nrows = base_fixture()\nrows[\"deliveries\"].reverse()\nquery = Query(decision_at=610)\nprint(evaluate(rows, query))\nprint(evaluate(rows, query, implementation=\"M4_input_order_latest\"))\n",
+    "expected_stdout": "95\n100\n"
+  },
+  {
+    "id": "ch8_replayed_input",
+    "chapter": 8,
+    "code": "from copy import deepcopy\nfrom fault_testing_lab import base_fixture, evaluate\n\ndata = base_fixture()\nreplayed = deepcopy(data)\nreplayed[\"deliveries\"] *= 2\nfor name in (\"reference\", \"M2_count_deliveries\"):\n    before = evaluate(data, implementation=name)\n    after = evaluate(replayed, implementation=name)\n    print(name, before, after)\n",
+    "expected_stdout": "reference 50 50\nM2_count_deliveries 50 100\n"
+  },
+  {
+    "id": "ch8_half_open_boundary",
+    "chapter": 8,
+    "code": "from fault_testing_lab import boundary_fixture, evaluate\n\n# Amounts 5 at 540, 7 at 599, 11 at 600; all usable by 600.\nprint(evaluate(boundary_fixture()))\nprint(evaluate(boundary_fixture(), implementation=\"M3_inclusive_upper\"))\n",
+    "expected_stdout": "12\n23\n"
+  },
+  {
+    "id": "ch8_later_info_invariance",
+    "chapter": 8,
+    "code": "from fault_testing_lab import run_check\n\nfor name in (\"reference\", \"M1_latest_before_cutoff\"):\n    result = run_check(\"later_info_invariance\", name)\n    witness = result[\"observations\"][0]\n    print(name, witness[\"expected\"], witness[\"observed\"])\n",
+    "expected_stdout": "reference 30 30\nM1_latest_before_cutoff 30 0\n"
+  },
+  {
+    "id": "ch8_unknown_coverage",
+    "chapter": 8,
+    "code": "from fault_testing_lab import Query, base_fixture, evaluate\n\nempty = base_fixture()\nempty[\"deliveries\"] = []\nprint(evaluate(empty, Query(history_known=True)))\nprint(evaluate(empty, Query(history_known=False)))\nprint(evaluate(base_fixture(), Query(history_known=False)))\n",
+    "expected_stdout": "0\nNone\nNone\n"
+  },
+  {
+    "id": "ch8_invalid_monotonicity",
+    "chapter": 8,
+    "code": "from foundations_lab import load_fixture, spend_in_window\n\nhistory = load_fixture().history\nfor cutoff in (604, 605, 607):\n    value = spend_in_window(history, \"C1\", window_start=540,\n                            window_end=600, known_at=cutoff)\n    print(cutoff, value)\n",
+    "expected_stdout": "604 50\n605 45\n607 85\n"
+  },
+  {
+    "id": "ch8_evidence_limits",
+    "chapter": 8,
+    "code": "from fault_testing_lab import blind_spot_report, mutation_report\n\nfor name, result in mutation_report()[\"suite_results\"].items():\n    print(name, result[\"detected_count\"], \"/\", 5)\nprobe = blind_spot_report()[\"constant_zero_probe_outside_mutant_registry\"]\nfor name in (\"shuffled_input\", \"replayed_input\", \"later_info_invariance\",\n             \"hand_calculated\", \"unknown_coverage\"):\n    print(name, probe[name])\n",
+    "expected_stdout": "weak 1 / 5\ndiagnostic 5 / 5\nshuffled_input PASS\nreplayed_input PASS\nlater_info_invariance PASS\nhand_calculated ASSERTION_FAILED\nunknown_coverage ASSERTION_FAILED\n"
+  }
+]

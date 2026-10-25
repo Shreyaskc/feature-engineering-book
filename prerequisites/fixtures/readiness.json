@@ -1,0 +1,82 @@
+{
+  "description": "Synthetic A/B/C teaching history from the book refresher; ranking and join previews use the same Chapter 3/4 contracts.",
+  "window": {
+    "start": 540,
+    "end": 600,
+    "known_at": 600
+  },
+  "base_events": [
+    [
+      "A",
+      550,
+      551,
+      20
+    ],
+    [
+      "B",
+      575,
+      607,
+      40
+    ],
+    [
+      "C",
+      585,
+      586,
+      30
+    ]
+  ],
+  "revisions": [
+    [
+      "A",
+      1,
+      550,
+      551,
+      20
+    ],
+    [
+      "B",
+      1,
+      575,
+      607,
+      40
+    ],
+    [
+      "C",
+      1,
+      585,
+      586,
+      30
+    ],
+    [
+      "C",
+      2,
+      585,
+      605,
+      25
+    ]
+  ],
+  "decisions": [
+    [
+      "D1",
+      "C1",
+      600
+    ],
+    [
+      "D2",
+      "C1",
+      610
+    ]
+  ],
+  "features": [
+    [
+      "D1",
+      "C1",
+      50
+    ],
+    [
+      "D2",
+      "C1",
+      95
+    ]
+  ]
+}

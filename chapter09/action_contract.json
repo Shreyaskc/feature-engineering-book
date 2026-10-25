@@ -1,0 +1,50 @@
+{
+  "action": {
+    "CONTINUE": "Fully passing internally consistent complete packet; canonical bad candidate cannot receive this outcome",
+    "HOLD": "Any missing, expired, inaccessible, contradictory, incomparable or unreproducible required evidence, or unavailable/incompatible recovery target",
+    "ROLLBACK": "Complete supported candidate FAIL, baseline4/4 with no missingness/fallback, matching candidate replay, all artifacts accessible/unexpired/identified, exact compatible retained recovery target"
+  },
+  "contract": {
+    "FAIL": "Complete observed candidate violates any required value/missingness/full-parity condition",
+    "PASS": "All observed candidate rows pass all conditions",
+    "UNKNOWN": "Observed candidate cohort incomplete or incomparable"
+  },
+  "decision_clock": "At or after all request evidence; canonical625",
+  "declared_cohort": [
+    [
+      "C0",
+      621
+    ],
+    [
+      "C1",
+      622
+    ],
+    [
+      "C2",
+      623
+    ],
+    [
+      "C3",
+      624
+    ]
+  ],
+  "expiry": "exclusive: checked_at >= expires_at is EXPIRED",
+  "independent_reference": "eligible fixed-window policy85",
+  "minimum_evidence": "All four declared requests, unique and complete, in observations and both replay cohorts. Four requests are not four independent source examples.",
+  "recovery": {
+    "FAIL": "Fresh replay fails checks or is not a fresh recovery-check evidence kind",
+    "HOLD": "Revalidated decision or target prerequisites do not support replay",
+    "RECOVERED": "Fresh local recovery-check replay on identical requests: four85, missing/fallback0/4, full parity/lineage4/4",
+    "checked_at": 626,
+    "external_actions": false
+  },
+  "required_artifacts": [
+    "request_log",
+    "source_snapshot",
+    "publication_bundle",
+    "release_manifest",
+    "replay_report",
+    "recovery_release"
+  ],
+  "scope": "Teaching choices for one deterministic fixed-feature-cell experiment; not statistically calibrated production SLOs."
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "compare_builds",
+    "chapter": 7,
+    "title": "Four builds, three meanings",
+    "code": "from backfill_lab import fixture_specs, values\n\nfor name, spec in fixture_specs().items():\n    print(name, values(spec))\n",
+    "expected_stdout": "baseline [50, 95, 0]\nextended_historical [50, 95, 0]\ncorrected [102, 112, 0]\nnew_definition [30, 35, 0]\n"
+  },
+  {
+    "id": "preserve_identity",
+    "chapter": 7,
+    "title": "Equal outputs do not erase provenance",
+    "code": "from backfill_lab import fixture_specs, make_spec, values\n\nspecs = fixture_specs()\nold = specs[\"baseline\"]\nnew = specs[\"extended_historical\"]\nprint(values(old) == values(new))\nprint(old.dataset_id == new.dataset_id)\nreordered = make_spec(\n    old.source, decisions=tuple(reversed(old.decisions)),\n    coverage=tuple(reversed(old.coverage)))\nprint(old.dataset_id == reordered.dataset_id)\n",
+    "expected_stdout": "True\nFalse\nTrue\n"
+  },
+  {
+    "id": "inspect_manifest",
+    "chapter": 7,
+    "title": "Inspect the immutable build contract",
+    "code": "from backfill_lab import Dataset, make_spec, materialize\n\nspec = make_spec()\nmanifest = Dataset(spec, materialize(spec)).manifest\nbound = manifest[\"spec\"]\nprint(bound[\"definition\"][\"feature_name\"])\nprint(bound[\"definition\"][\"window_minutes\"],\n      bound[\"definition\"][\"mode\"])\nprint(len(bound[\"source\"]), len(bound[\"decisions\"]))\nprint(sorted(bound[\"code\"]))\nprint(bool(bound[\"runtime\"]), manifest[\"record_count\"])\n",
+    "expected_stdout": "spend_before_decision\n60 historical\n5 3\n['backfill_lab.py', 'foundations_lab.py']\nTrue 3\n"
+  },
+  {
+    "id": "resume_build",
+    "chapter": 7,
+    "title": "Restart from verified chunks",
+    "code": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom backfill_lab import make_spec, stage_build, publish_dataset\n\nwith TemporaryDirectory() as folder:\n    store, spec = Path(folder), make_spec()\n    first = stage_build(store, \"attempt\", spec, stop_after_chunks=1)\n    resumed = stage_build(store, \"attempt\", spec)\n    replayed = stage_build(store, \"attempt\", spec)\n    dataset = publish_dataset(store, \"attempt\", spec)\n    print(first.next_index, first.complete)\n    print(resumed.next_index, resumed.complete)\n    print(replayed == resumed, len(dataset.records))\n",
+    "expected_stdout": "1 False\n3 True\nTrue 3\n"
+  },
+  {
+    "id": "reject_changed_resume",
+    "chapter": 7,
+    "title": "Refuse to resume a different run",
+    "code": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom backfill_lab import ContractError, fixture_specs, stage_build\n\nwith TemporaryDirectory() as folder:\n    store, specs = Path(folder), fixture_specs()\n    stage_build(store, \"attempt\", specs[\"baseline\"],\n                stop_after_chunks=1)\n    try:\n        stage_build(store, \"attempt\", specs[\"extended_historical\"])\n    except ContractError:\n        print(\"changed source: rejected\")\n    print(stage_build(store, \"attempt\", specs[\"baseline\"]).complete)\n",
+    "expected_stdout": "changed source: rejected\nTrue\n"
+  },
+  {
+    "id": "reject_corruption",
+    "chapter": 7,
+    "title": "Validate before moving a release pointer",
+    "code": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom backfill_lab import (ContractError, ReleaseRegistry, ReleaseToken,\n                          dataset_path, fixture_specs, load_dataset,\n                          stage_build, publish_dataset)\n\nwith TemporaryDirectory() as folder:\n    store, specs, ids = Path(folder), fixture_specs(), []\n    for name in (\"baseline\", \"extended_historical\"):\n        stage_build(store, name, specs[name])\n        ids.append(publish_dataset(store, name, specs[name]).dataset_id)\n    registry = ReleaseRegistry(store)\n    before = registry.promote(\"historical\", ids[0],\n                              expected_current=ReleaseToken())\n    dataset_path(store, ids[1]).write_bytes(b\"broken\\n\")\n    try:\n        registry.promote(\"historical\", ids[1], expected_current=before)\n    except ContractError:\n        print(\"corruption: rejected\")\n    print(registry.current(\"historical\") == before)\n    original = load_dataset(store, ids[0])\n    print([row.value for row in original.records])\n",
+    "expected_stdout": "corruption: rejected\nTrue\n[50, 95, 0]\n"
+  },
+  {
+    "id": "promote_and_pin",
+    "chapter": 7,
+    "title": "Release a dataset and pin an experiment",
+    "code": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom backfill_lab import (Experiment, ReleaseRegistry, ReleaseToken,\n                          fixture_specs, stage_build, publish_dataset)\n\nwith TemporaryDirectory() as folder:\n    store, specs, ids = Path(folder), fixture_specs(), []\n    for name in (\"baseline\", \"extended_historical\"):\n        stage_build(store, name, specs[name])\n        ids.append(publish_dataset(store, name, specs[name]).dataset_id)\n    experiment = Experiment(\"baseline_trial\", ids[0])\n    registry = ReleaseRegistry(store)\n    first = registry.promote(\"historical\", ids[0],\n                             expected_current=ReleaseToken())\n    current = registry.promote(\"historical\", ids[1],\n                               expected_current=first)\n    print(current.generation)\n    print([row.value for row in experiment.read(store).records])\n    print(experiment.dataset_id == current.dataset_id)\n",
+    "expected_stdout": "2\n[50, 95, 0]\nFalse\n"
+  },
+  {
+    "id": "reject_corrected_promotion",
+    "chapter": 7,
+    "title": "Protect the historical channel",
+    "code": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom backfill_lab import (ContractError, ReleaseRegistry, ReleaseToken,\n                          fixture_specs, stage_build, publish_dataset)\n\nwith TemporaryDirectory() as folder:\n    store, spec = Path(folder), fixture_specs()[\"corrected\"]\n    stage_build(store, \"attempt\", spec)\n    dataset = publish_dataset(store, \"attempt\", spec)\n    registry = ReleaseRegistry(store)\n    try:\n        registry.promote(\"historical\", dataset.dataset_id,\n                         expected_current=ReleaseToken())\n    except ContractError:\n        print(\"corrected to historical: rejected\")\n    print(registry.current(\"historical\").generation)\n",
+    "expected_stdout": "corrected to historical: rejected\n0\n"
+  },
+  {
+    "id": "rollback_and_stale_token",
+    "chapter": 7,
+    "title": "Rollback preserves data and advances generation",
+    "code": "from pathlib import Path\nfrom tempfile import TemporaryDirectory\nfrom backfill_lab import (ContractError, ReleaseRegistry, ReleaseToken,\n                          fixture_specs, stage_build, publish_dataset)\n\nwith TemporaryDirectory() as folder:\n    store, specs = Path(folder), fixture_specs()\n    ids = []\n    for name in (\"baseline\", \"extended_historical\"):\n        stage_build(store, name, specs[name])\n        ids.append(publish_dataset(store, name, specs[name]).dataset_id)\n    registry = ReleaseRegistry(store)\n    one = registry.promote(\"historical\", ids[0],\n                           expected_current=ReleaseToken())\n    two = registry.promote(\"historical\", ids[1], expected_current=one)\n    three = registry.rollback(\"historical\", ids[0], expected_current=two)\n    print(one.generation, two.generation, three.generation)\n    print(one.dataset_id == three.dataset_id)\n    try:\n        registry.promote(\"historical\", ids[1], expected_current=one)\n    except ContractError:\n        print(\"stale generation: rejected\")\n",
+    "expected_stdout": "1 2 3\nTrue\nstale generation: rejected\n"
+  }
+]

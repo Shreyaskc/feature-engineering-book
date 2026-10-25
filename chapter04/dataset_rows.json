@@ -1,0 +1,47 @@
+[
+  {
+    "decision_id": "D1",
+    "customer": "C1",
+    "decision_time": 600,
+    "spend": 50,
+    "label": 1,
+    "label_cutoff": 1200,
+    "split": "train"
+  },
+  {
+    "decision_id": "D2",
+    "customer": "C1",
+    "decision_time": 610,
+    "spend": 95,
+    "label": 0,
+    "label_cutoff": 1200,
+    "split": "train"
+  },
+  {
+    "decision_id": "D3",
+    "customer": "C2",
+    "decision_time": 900,
+    "spend": 20,
+    "label": 0,
+    "label_cutoff": 1200,
+    "split": "train"
+  },
+  {
+    "decision_id": "D5",
+    "customer": "C1",
+    "decision_time": 1300,
+    "spend": 10,
+    "label": 1,
+    "label_cutoff": 1500,
+    "split": "validation"
+  },
+  {
+    "decision_id": "D6",
+    "customer": "C4",
+    "decision_time": 1310,
+    "spend": 40,
+    "label": 0,
+    "label_cutoff": 1500,
+    "split": "validation"
+  }
+]

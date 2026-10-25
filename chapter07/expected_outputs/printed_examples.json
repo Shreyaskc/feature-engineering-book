@@ -1,0 +1,69 @@
+{
+  "fresh_process_per_snippet": true,
+  "results": [
+    {
+      "chapter": 7,
+      "id": "compare_builds",
+      "line_count": 4,
+      "maximum_line_width": 46,
+      "stdout": "baseline [50, 95, 0]\nextended_historical [50, 95, 0]\ncorrected [102, 112, 0]\nnew_definition [30, 35, 0]\n"
+    },
+    {
+      "chapter": 7,
+      "id": "preserve_identity",
+      "line_count": 11,
+      "maximum_line_width": 57,
+      "stdout": "True\nFalse\nTrue\n"
+    },
+    {
+      "chapter": 7,
+      "id": "inspect_manifest",
+      "line_count": 11,
+      "maximum_line_width": 56,
+      "stdout": "spend_before_decision\n60 historical\n5 3\n['backfill_lab.py', 'foundations_lab.py']\nTrue 3\n"
+    },
+    {
+      "chapter": 7,
+      "id": "resume_build",
+      "line_count": 13,
+      "maximum_line_width": 68,
+      "stdout": "1 False\n3 True\nTrue 3\n"
+    },
+    {
+      "chapter": 7,
+      "id": "reject_changed_resume",
+      "line_count": 13,
+      "maximum_line_width": 68,
+      "stdout": "changed source: rejected\nTrue\n"
+    },
+    {
+      "chapter": 7,
+      "id": "reject_corruption",
+      "line_count": 22,
+      "maximum_line_width": 72,
+      "stdout": "corruption: rejected\nTrue\n[50, 95, 0]\n"
+    },
+    {
+      "chapter": 7,
+      "id": "promote_and_pin",
+      "line_count": 19,
+      "maximum_line_width": 72,
+      "stdout": "2\n[50, 95, 0]\nFalse\n"
+    },
+    {
+      "chapter": 7,
+      "id": "reject_corrected_promotion",
+      "line_count": 16,
+      "maximum_line_width": 71,
+      "stdout": "corrected to historical: rejected\n0\n"
+    },
+    {
+      "chapter": 7,
+      "id": "rollback_and_stale_token",
+      "line_count": 22,
+      "maximum_line_width": 73,
+      "stdout": "1 2 3\nTrue\nstale generation: rejected\n"
+    }
+  ],
+  "snippets_executed": 9
+}

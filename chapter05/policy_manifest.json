@@ -1,0 +1,39 @@
+{
+  "chapter": 5,
+  "fixture": "synthetic only",
+  "feature_id": "known_spend_fixed_window_v1",
+  "entity": "C1",
+  "event_window": [
+    540,
+    600
+  ],
+  "upper_bound_exclusive": true,
+  "audit_cutoff": 620,
+  "audit_is_eventual_truth": false,
+  "policies": [
+    {
+      "policy_id": "immediate_then_correct",
+      "first_emit": 600,
+      "close_at": 610
+    },
+    {
+      "policy_id": "wait_then_freeze",
+      "first_emit": 610,
+      "close_at": 610
+    }
+  ],
+  "ordering": "all arrivals by delivery ID; watermark; one snapshot; closure",
+  "deadline": "processing-time <= close_at; not allowed lateness",
+  "output": "immutable full replacements with monotonic per-key revisions",
+  "history": "fixture assumes complete initial history; unknown is rejected",
+  "missing_metrics": "zero audit denominator is null, not 100 percent",
+  "source_sha256": "94da03332328de360e432c2a86d0b925c7ea5d10e61df17329eb8d107c413a81",
+  "python": "3.12.14",
+  "dependencies": "standard library only",
+  "limitations": [
+    "no streaming engine execution",
+    "no concurrency or crash recovery",
+    "no source finality proof",
+    "no real latency or model benchmark"
+  ]
+}

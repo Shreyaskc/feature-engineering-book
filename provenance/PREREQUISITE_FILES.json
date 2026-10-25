@@ -1,0 +1,10 @@
+{
+  "prerequisites/README.md": "7eb62e58da837a6a469fa74e2c9f6a8f95f4f97662b63415cdada2e43e827b81",
+  "prerequisites/book_refresher_examples.json": "264f8f556764c005c0ca50948fa4487601cf6ef8017b00f2a19deb3d5b268d5d",
+  "prerequisites/expected_output.json": "d93f49ba56f867b2776a62367071d29e9befaacb0629d0a3324f5beeecc74b4d",
+  "prerequisites/fixtures/readiness.json": "e6f9b40a6878c75f96154329f093dbadae6b17bcea02479e919a5f2b2a926e36",
+  "prerequisites/readiness_lab.py": "42f721a34bd5ef863cf0bbdc039b04984dad49122cd27a530f0a0e83f9669be4",
+  "prerequisites/refresher-python.md": "7245aee326a02cd9cf0eae9e7beee270729155a29c7ee06a50321293e1e58d80",
+  "prerequisites/refresher-sql.md": "9881cb06d09e4a76b7869e491937adae94e000346d3e9470d288deed9c46d275",
+  "prerequisites/test_readiness_lab.py": "9121469c991f5f1a605045603419592b3978fc8cc31b135ed28419646d11793b"
+}

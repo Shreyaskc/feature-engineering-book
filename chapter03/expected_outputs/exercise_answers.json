@@ -1,0 +1,79 @@
+{
+  "exercise_1": {
+    "D1": {
+      "terms": [
+        20,
+        30
+      ],
+      "value": 50
+    },
+    "D2": {
+      "terms": [
+        20,
+        40,
+        25,
+        10
+      ],
+      "value": 95
+    },
+    "fixed_known_610": {
+      "terms": [
+        20,
+        40,
+        25
+      ],
+      "value": 85
+    },
+    "why": "D2 changes both the window and knowledge cutoff; fixed_known_610 changes only knowledge."
+  },
+  "exercise_2": {
+    "correct": 50,
+    "why": "Selecting C2 first and then rejecting it at 600 loses eligible C1; filter availability before choosing a revision.",
+    "wrong_latest_first": 20
+  },
+  "exercise_3": {
+    "K_L_M_together": 58,
+    "M_availability_601": 55,
+    "why": "540 is included, 600 event time is excluded, and availability exactly 600 is eligible."
+  },
+  "exercise_4": {
+    "by_cutoff": {
+      "604": 50,
+      "605": 45,
+      "606": 45,
+      "607": 85
+    },
+    "original_600": 50,
+    "why": "C changes from 30 to 25 at 605; B adds 40 at 607. Later knowledge is not a monotone sum."
+  },
+  "exercise_5": {
+    "by_cutoff": {
+      "604": 50,
+      "605": 42,
+      "607": 82
+    },
+    "why": "C2 and C3 become eligible together; the greatest eligible revision, C3, wins."
+  },
+  "exercise_6": {
+    "default_restoration_rejected": true,
+    "deleted_at_620": 60,
+    "restoration_at_619": 60,
+    "restoration_at_620": 88,
+    "why": "C3 must win before its delete operation excludes it; removing tombstones first resurrects C2.",
+    "wrong_delete_prefilter": 85
+  },
+  "exercise_7": {
+    "known_empty_C9": 0,
+    "unknown_C1": null,
+    "unknown_C9": null,
+    "why": "Coverage is external evidence; neither an empty result nor supplied partial rows establish it."
+  },
+  "exercise_8": {
+    "A_available_at": 551,
+    "deliveries": 6,
+    "original_value": 50,
+    "versions": 5,
+    "why": "A retry at 609 preserves first availability 551. Replacing that evidence with 609 incorrectly hides A at 600.",
+    "wrong_rewritten_availability": 30
+  }
+}

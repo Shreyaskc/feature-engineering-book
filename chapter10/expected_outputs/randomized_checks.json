@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "distinct_delivery_retry": 160,
+    "exact_delivery_replay": 160,
+    "historical_oracle_rows": 1600,
+    "metamorphic_historical_rows": 4800,
+    "online_oracle_rows": 1920,
+    "publication_oracle_cases": 160,
+    "sink_duplicate_replay": 320,
+    "sink_stale_arrives_last": 320,
+    "sink_unique_shuffle": 320,
+    "source_shuffle": 160
+  },
+  "corpus_sha256": "a1f052476737bde3fdefd1472bbf3ce7c19af2fa75992a63b2d85dcc5096f915",
+  "coverage": {
+    "after_deadline_source": 150,
+    "availability_at_decision": 150,
+    "delayed_transport_delivery": 150,
+    "equal_availability_revisions": 150,
+    "exclusive_upper_boundary": 150,
+    "inclusive_lower_boundary": 150,
+    "inclusive_publication_deadline": 150,
+    "known_empty_source": 10,
+    "known_zero_history": 160,
+    "multiple_customers": 150,
+    "revision_gaps": 150,
+    "same_value_new_provenance": 150,
+    "unknown_history": 160
+  },
+  "generated_cases": 160,
+  "scope": "Finite deterministic checks; not exhaustive or a proof.",
+  "seed": 20261005,
+  "status": "passed"
+}

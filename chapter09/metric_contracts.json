@@ -1,0 +1,76 @@
+{
+  "metrics": {
+    "fallback": {
+      "base_expected": "1/6",
+      "denominator": "requests with evaluable fallback state",
+      "excluded": "incompatible contexts in incident summary",
+      "numerator": "known fallback_used=True requests",
+      "unknown": "absent or inconsistent state evidence; missing context metadata"
+    },
+    "full_model_parity": {
+      "base_expected": "3/6",
+      "denominator": "complete comparable requests including known fallback",
+      "excluded": "incompatible incident contexts/provenance",
+      "numerator": "raw and model parity plus required semantic identity, release, preprocessing and publication provenance; base also requires trace-to-log match",
+      "unknown": "missing required evidence"
+    },
+    "lineage": {
+      "denominator": "requests with evaluable compatible lineage",
+      "excluded": "known incompatible context or invalid available publication provenance",
+      "numerator": "compatible complete semantic/input/implementation context and no known invalid served publication provenance",
+      "scope": "Incident summary; complete value metadata is independently required by the action gate",
+      "unknown": "missing context identity"
+    },
+    "missing": {
+      "base_expected": "1/6",
+      "denominator": "requests with evaluable missing-feature state",
+      "excluded": "incompatible contexts in incident summary",
+      "numerator": "known feature_missing=True requests",
+      "unknown": "absent or inconsistent state evidence; missing context metadata"
+    },
+    "model_parity": {
+      "base_expected": "3/6",
+      "denominator": "requests with comparable model input including known fallback",
+      "excluded": "incompatible incident contexts/provenance",
+      "numerator": "model input exactly equals identity-preprocessed eligible policy value",
+      "unknown": "missing required evidence for comparison"
+    },
+    "raw_parity": {
+      "base_expected": "3/5",
+      "denominator": "requests with comparable observed raw value",
+      "excluded": "known raw absence; incompatible incident contexts/provenance",
+      "numerator": "raw value exactly equals eligible policy value in compatible context",
+      "unknown": "missing required evidence for comparison"
+    }
+  },
+  "partition": "denominator + excluded + unknown = declared requests; a zero denominator has null rate",
+  "publication_timing": {
+    "age": "request time minus served publication time",
+    "base_age": [
+      null,
+      2,
+      6,
+      8,
+      3,
+      13
+    ],
+    "base_coverage": {
+      "excluded_no_value": 1,
+      "measurable": 5,
+      "unknown": 0
+    },
+    "base_lag": [
+      null,
+      0,
+      5,
+      7,
+      0,
+      0
+    ],
+    "eligibility": "verified served publication provenance and compatible contracts; known absent publication excluded, uncertain identity unknown",
+    "lag": "latest eligible policy publication time minus served publication time",
+    "lag_is_not": "elapsed update waiting time or measured propagation latency"
+  },
+  "scope": "Pedagogical exact integer metrics; separate six-request base and four-request change cohorts.",
+  "unknown_policy": "Never count missing telemetry or metadata as a match. Show coverage with every rate."
+}

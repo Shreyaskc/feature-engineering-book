@@ -1,0 +1,56 @@
+{
+  "phase": "before Chapter 1",
+  "title": "Read the lab code: beginner readiness",
+  "command": ".venv/bin/python -B verify_all.py --prerequisites-only",
+  "topics": [
+    "two unchanged book refresher examples",
+    "None versus zero and False",
+    "frozen dataclass records",
+    "event and availability clocks",
+    "half-open windows",
+    "fixtures and assertions",
+    "SQL join cardinality",
+    "separate latest-eligible ranking preview"
+  ],
+  "expected_unit_tests": 12,
+  "paths": [
+    "prerequisites/README.md",
+    "prerequisites/readiness_lab.py",
+    "prerequisites/test_readiness_lab.py",
+    "prerequisites/fixtures/readiness.json",
+    "prerequisites/expected_output.json",
+    "prerequisites/book_refresher_examples.json",
+    "prerequisites/refresher-python.md",
+    "prerequisites/refresher-sql.md"
+  ],
+  "source_views": [
+    {
+      "id": "refresher_python_values",
+      "title": "Python values and explicit absence",
+      "view_path": "prerequisites/refresher-python.md",
+      "code_sha256": "fd4302e22013143abe01ed2ea72ba97539732dee6e1cd92c5df538ff5006eac1",
+      "source_paragraph": 2027,
+      "source_version": 2,
+      "canonical_source_path": "prerequisites/book_refresher_examples.json",
+      "view_code_start_line": 10,
+      "view_code_end_line": 12,
+      "language": "python",
+      "source_document_sha256": "f863704fdd1e65582883cad9583bdd4add9504b0b1feeebe3111d2dcad146f26"
+    },
+    {
+      "id": "refresher_sql_filtering",
+      "title": "SQL filtering before aggregation",
+      "view_path": "prerequisites/refresher-sql.md",
+      "code_sha256": "6b98ad05090bc5b943f4788d63f8b9639fd4b4b2bbd95d6358c5f71b07d6a2e1",
+      "source_paragraph": 2032,
+      "source_version": 2,
+      "canonical_source_path": "prerequisites/book_refresher_examples.json",
+      "view_code_start_line": 10,
+      "view_code_end_line": 19,
+      "language": "python",
+      "source_document_sha256": "f863704fdd1e65582883cad9583bdd4add9504b0b1feeebe3111d2dcad146f26"
+    }
+  ],
+  "observed_output_path": "evidence/mac/prerequisites/run_1/observed.json",
+  "counting_rule": "Readiness is reported separately from the nine chapter suites."
+}

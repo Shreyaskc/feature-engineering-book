@@ -1,0 +1,129 @@
+{
+  "queries": {
+    "D1": {
+      "explanation": {
+        "coverage_note": "known relevant history",
+        "history_known": true,
+        "selected": [
+          {
+            "amount": 20,
+            "available_at": 551,
+            "event_id": "A",
+            "event_time": 550,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          },
+          {
+            "amount": 30,
+            "available_at": 586,
+            "event_id": "C",
+            "event_time": 585,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          }
+        ],
+        "value": 50
+      },
+      "reference": 50,
+      "sqlite": 50
+    },
+    "D2": {
+      "explanation": {
+        "coverage_note": "known relevant history",
+        "history_known": true,
+        "selected": [
+          {
+            "amount": 20,
+            "available_at": 551,
+            "event_id": "A",
+            "event_time": 550,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          },
+          {
+            "amount": 40,
+            "available_at": 607,
+            "event_id": "B",
+            "event_time": 575,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          },
+          {
+            "amount": 25,
+            "available_at": 605,
+            "event_id": "C",
+            "event_time": 585,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 2
+          },
+          {
+            "amount": 10,
+            "available_at": 603,
+            "event_id": "D",
+            "event_time": 602,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          }
+        ],
+        "value": 95
+      },
+      "reference": 95,
+      "sqlite": 95
+    },
+    "fixed_known_610": {
+      "explanation": {
+        "coverage_note": "known relevant history",
+        "history_known": true,
+        "selected": [
+          {
+            "amount": 20,
+            "available_at": 551,
+            "event_id": "A",
+            "event_time": 550,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          },
+          {
+            "amount": 40,
+            "available_at": 607,
+            "event_id": "B",
+            "event_time": 575,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 1
+          },
+          {
+            "amount": 25,
+            "available_at": 605,
+            "event_id": "C",
+            "event_time": 585,
+            "op": "upsert",
+            "reason": "included",
+            "revision": 2
+          },
+          {
+            "amount": 10,
+            "available_at": 603,
+            "event_id": "D",
+            "event_time": 602,
+            "op": "upsert",
+            "reason": "outside event window",
+            "revision": 1
+          }
+        ],
+        "value": 85
+      },
+      "reference": 85,
+      "sqlite": 85
+    }
+  },
+  "wrong_future_knowledge": 85,
+  "wrong_latest_first": 20
+}

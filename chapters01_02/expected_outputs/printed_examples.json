@@ -1,0 +1,61 @@
+{
+  "results": [
+    {
+      "chapter": 1,
+      "id": "ch1_contract",
+      "line_count": 7,
+      "maximum_line_width": 50,
+      "stdout": "50\n95\n"
+    },
+    {
+      "chapter": 1,
+      "id": "ch1_boundaries",
+      "line_count": 7,
+      "maximum_line_width": 57,
+      "stdout": "55\n50\n"
+    },
+    {
+      "chapter": 1,
+      "id": "ch1_missing",
+      "line_count": 7,
+      "maximum_line_width": 47,
+      "stdout": "0\nNone\n"
+    },
+    {
+      "chapter": 2,
+      "id": "ch2_retry",
+      "line_count": 9,
+      "maximum_line_width": 65,
+      "stdout": "6 5\n551\n50\n"
+    },
+    {
+      "chapter": 2,
+      "id": "ch2_atomic",
+      "line_count": 13,
+      "maximum_line_width": 73,
+      "stdout": "ContractError\nTrue\n"
+    },
+    {
+      "chapter": 2,
+      "id": "ch2_replay",
+      "line_count": 8,
+      "maximum_line_width": 63,
+      "stdout": "True\nTrue\n95\n"
+    },
+    {
+      "chapter": 2,
+      "id": "ch2_delete",
+      "line_count": 7,
+      "maximum_line_width": 64,
+      "stdout": "50\n95\n60\n"
+    },
+    {
+      "chapter": 2,
+      "id": "ch2_restore",
+      "line_count": 9,
+      "maximum_line_width": 70,
+      "stdout": "88\n"
+    }
+  ],
+  "snippets_executed": 8
+}

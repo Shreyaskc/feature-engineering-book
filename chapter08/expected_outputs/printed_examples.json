@@ -1,0 +1,76 @@
+{
+  "fresh_process_per_snippet": true,
+  "results": [
+    {
+      "chapter": 8,
+      "id": "ch8_numeric_anchors",
+      "line_count": 4,
+      "maximum_line_width": 59,
+      "stdout": "50\n95\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_weak_suite",
+      "line_count": 8,
+      "maximum_line_width": 70,
+      "stdout": "True\n600 50\n610 125\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_schema_fail_closed",
+      "line_count": 11,
+      "maximum_line_width": 55,
+      "stdout": "missing rejected\nnull rejected\nbool rejected\n90\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_shuffled_input",
+      "line_count": 7,
+      "maximum_line_width": 68,
+      "stdout": "95\n100\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_replayed_input",
+      "line_count": 10,
+      "maximum_line_width": 52,
+      "stdout": "reference 50 50\nM2_count_deliveries 50 100\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_half_open_boundary",
+      "line_count": 5,
+      "maximum_line_width": 72,
+      "stdout": "12\n23\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_later_info_invariance",
+      "line_count": 6,
+      "maximum_line_width": 57,
+      "stdout": "reference 30 30\nM1_latest_before_cutoff 30 0\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_unknown_coverage",
+      "line_count": 7,
+      "maximum_line_width": 59,
+      "stdout": "0\nNone\nNone\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_invalid_monotonicity",
+      "line_count": 7,
+      "maximum_line_width": 60,
+      "stdout": "604 50\n605 45\n607 85\n"
+    },
+    {
+      "chapter": 8,
+      "id": "ch8_evidence_limits",
+      "line_count": 8,
+      "maximum_line_width": 74,
+      "stdout": "weak 1 / 5\ndiagnostic 5 / 5\nshuffled_input PASS\nreplayed_input PASS\nlater_info_invariance PASS\nhand_calculated ASSERTION_FAILED\nunknown_coverage ASSERTION_FAILED\n"
+    }
+  ],
+  "snippets_executed": 10
+}

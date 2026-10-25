@@ -1,0 +1,14 @@
+{
+  "authoritative_module": "book1-chapter6/lab/parity_lab.py",
+  "change": "Validate present non-None metadata types before equality comparisons; preserve missing and None evidence semantics. Bind replay context, every retained publication key and all declared contract fields before recovery replay; validate integer recovery/cohort clocks. This context binding does not recompute publication values from source or prove that they were derived correctly.",
+  "chapter": 9,
+  "external_actions": false,
+  "fixture_semantics_changed": false,
+  "description_correction": "Round 1 documentation-only clarification; operations_lab.py, replay behavior and fixture semantics are unchanged.",
+  "module_sha256": "1bd7fa504b465f1005cef7715ff7cd71a706e593fb0fa5d3308c6b30ad9a251e",
+  "operations_sha256": "6b78089957170a19246995fdbc14a36cf19702b4712f6acbde4aee90ee4f07f6",
+  "original_source_archive": "Production-Feature-Engineering-Chapter-6-Lab.zip",
+  "original_source_archive_sha256": "5e3aa0c7f97390f29694abee3c55372cc22a94da5c94680f5c20b5691849a30b",
+  "parity_source_revision": "2026-10-05-metadata-v2",
+  "revision": "2026-10-05-metadata-and-recovery-v2"
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "allow_restore": false,
+  "deliveries": [
+    {
+      "delivery_id": "a1",
+      "delivered_at": 551,
+      "record": {
+        "event_id": "A",
+        "revision": 1,
+        "customer_id": "C1",
+        "event_time": 550,
+        "available_at": 551,
+        "amount": 20,
+        "op": "upsert"
+      }
+    },
+    {
+      "delivery_id": "b1",
+      "delivered_at": 607,
+      "record": {
+        "event_id": "B",
+        "revision": 1,
+        "customer_id": "C1",
+        "event_time": 575,
+        "available_at": 607,
+        "amount": 40,
+        "op": "upsert"
+      }
+    },
+    {
+      "delivery_id": "c1",
+      "delivered_at": 586,
+      "record": {
+        "event_id": "C",
+        "revision": 1,
+        "customer_id": "C1",
+        "event_time": 585,
+        "available_at": 586,
+        "amount": 30,
+        "op": "upsert"
+      }
+    },
+    {
+      "delivery_id": "c2",
+      "delivered_at": 605,
+      "record": {
+        "event_id": "C",
+        "revision": 2,
+        "customer_id": "C1",
+        "event_time": 585,
+        "available_at": 605,
+        "amount": 25,
+        "op": "upsert"
+      }
+    },
+    {
+      "delivery_id": "d1",
+      "delivered_at": 603,
+      "record": {
+        "event_id": "D",
+        "revision": 1,
+        "customer_id": "C1",
+        "event_time": 602,
+        "available_at": 603,
+        "amount": 10,
+        "op": "upsert"
+      }
+    },
+    {
+      "delivery_id": "e1",
+      "delivered_at": 612,
+      "record": {
+        "event_id": "E",
+        "revision": 1,
+        "customer_id": "C1",
+        "event_time": 595,
+        "available_at": 612,
+        "amount": 15,
+        "op": "upsert"
+      }
+    },
+    {
+      "delivery_id": "b2",
+      "delivered_at": 630,
+      "record": {
+        "event_id": "B",
+        "revision": 2,
+        "customer_id": "C1",
+        "event_time": 575,
+        "available_at": 630,
+        "amount": 42,
+        "op": "upsert"
+      }
+    }
+  ]
+}

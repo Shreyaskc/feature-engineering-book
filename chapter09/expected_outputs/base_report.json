@@ -1,0 +1,1025 @@
+{
+  "chapter6_report": {
+    "contracts": {
+      "policy_contract_version": "policy-v1",
+      "preprocessing_id": "identity-v1",
+      "publication_schema_version": "publication-v1",
+      "serving_log_schema_version": "serving-log-v1",
+      "source_schema_version": "source-v1"
+    },
+    "deadline": 610,
+    "flag_counts": {
+      "cache_lag": 2,
+      "cache_miss": 1,
+      "definition_or_key_mismatch": 0,
+      "fallback_used": 1,
+      "insufficient_evidence": 0,
+      "materialization_lag": 1,
+      "numeric_mismatch": 3,
+      "preprocessing_mismatch": 0,
+      "provenance_mismatch": 0,
+      "source_after_deadline": 1,
+      "store_missing": 1
+    },
+    "key": {
+      "entity": "C1",
+      "feature_definition_id": "known_spend_fixed_window_v1",
+      "policy_id": "immediate_then_correct",
+      "window_end": 600,
+      "window_start": 540
+    },
+    "metrics": {
+      "policy_full": {
+        "evaluable": 6,
+        "excluded": 0,
+        "matches": 3
+      },
+      "policy_numeric": {
+        "evaluable": 6,
+        "excluded": 0,
+        "matches": 3
+      },
+      "policy_provenance": {
+        "evaluable": 6,
+        "excluded": 0,
+        "matches": 3
+      },
+      "raw_policy_numeric": {
+        "evaluable": 5,
+        "excluded": 1,
+        "matches": 3
+      },
+      "raw_source_numeric": {
+        "evaluable": 5,
+        "excluded": 1,
+        "matches": 2
+      },
+      "trace_logging": {
+        "evaluable": 6,
+        "excluded": 0,
+        "matches": 6
+      }
+    },
+    "rows": [
+      {
+        "absent_log_fields": [],
+        "after_deadline_source_versions": [],
+        "comparisons": {
+          "policy_full_match": false,
+          "policy_numeric_match": false,
+          "policy_provenance_match": false,
+          "policy_to_store": false,
+          "raw_policy_numeric_match": null,
+          "raw_source_numeric_match": null,
+          "source_to_policy": true,
+          "store_to_cache": true,
+          "trace_numeric_match": null,
+          "trace_provenance_match": true,
+          "trace_to_log": true
+        },
+        "expected_cache": {
+          "captured_at": null,
+          "history_known": true,
+          "record": null
+        },
+        "expected_logged_model_input_from_cache": 0,
+        "expected_model_input": 50,
+        "expected_policy": {
+          "revision": 1,
+          "source_cutoff": 600,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ],
+          "value": 50
+        },
+        "expected_source": {
+          "history_known": true,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ],
+          "value": 50
+        },
+        "expected_store": {
+          "history_known": true,
+          "record": null
+        },
+        "flags": [
+          "store_missing",
+          "cache_miss",
+          "fallback_used",
+          "numeric_mismatch"
+        ],
+        "lag_attribution_scope": "independent publication/store/cache trace, not numeric differences",
+        "logged": {
+          "cache_capture_at": null,
+          "contracts": {
+            "policy_contract_version": "policy-v1",
+            "preprocessing_id": "identity-v1",
+            "publication_schema_version": "publication-v1",
+            "serving_log_schema_version": "serving-log-v1",
+            "source_schema_version": "source-v1"
+          },
+          "fallback_reason": "cache_miss",
+          "fallback_used": true,
+          "fallback_value": 0,
+          "feature_missing": true,
+          "key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "model_input": 0,
+          "preprocessing_id": "identity-v1",
+          "raw_value": null,
+          "value_key": null,
+          "value_revision": null,
+          "value_source_cutoff": null,
+          "value_source_versions": null
+        },
+        "logged_cache_capture_at": null,
+        "logged_fallback_reason": "cache_miss",
+        "logged_fallback_used": true,
+        "logged_fallback_value": 0,
+        "logged_feature_missing": true,
+        "logged_model_input": 0,
+        "logged_raw_value": null,
+        "model_delta_from_policy": -50,
+        "request_id": "R0",
+        "requested_at": 600,
+        "semantic_key_verified": true
+      },
+      {
+        "absent_log_fields": [],
+        "after_deadline_source_versions": [],
+        "comparisons": {
+          "policy_full_match": true,
+          "policy_numeric_match": true,
+          "policy_provenance_match": true,
+          "policy_to_store": true,
+          "raw_policy_numeric_match": true,
+          "raw_source_numeric_match": true,
+          "source_to_policy": true,
+          "store_to_cache": true,
+          "trace_numeric_match": true,
+          "trace_provenance_match": true,
+          "trace_to_log": true
+        },
+        "expected_cache": {
+          "captured_at": 601,
+          "history_known": true,
+          "record": {
+            "revision": 1,
+            "source_cutoff": 600,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                1
+              ]
+            ],
+            "value": 50
+          }
+        },
+        "expected_logged_model_input_from_cache": 50,
+        "expected_model_input": 50,
+        "expected_policy": {
+          "revision": 1,
+          "source_cutoff": 600,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ],
+          "value": 50
+        },
+        "expected_source": {
+          "history_known": true,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ],
+          "value": 50
+        },
+        "expected_store": {
+          "history_known": true,
+          "record": {
+            "revision": 1,
+            "source_cutoff": 600,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                1
+              ]
+            ],
+            "value": 50
+          }
+        },
+        "flags": [],
+        "lag_attribution_scope": "independent publication/store/cache trace, not numeric differences",
+        "logged": {
+          "cache_capture_at": 601,
+          "contracts": {
+            "policy_contract_version": "policy-v1",
+            "preprocessing_id": "identity-v1",
+            "publication_schema_version": "publication-v1",
+            "serving_log_schema_version": "serving-log-v1",
+            "source_schema_version": "source-v1"
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "fallback_value": null,
+          "feature_missing": false,
+          "key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "model_input": 50,
+          "preprocessing_id": "identity-v1",
+          "raw_value": 50,
+          "value_key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "value_revision": 1,
+          "value_source_cutoff": 600,
+          "value_source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ]
+        },
+        "logged_cache_capture_at": 601,
+        "logged_fallback_reason": null,
+        "logged_fallback_used": false,
+        "logged_fallback_value": null,
+        "logged_feature_missing": false,
+        "logged_model_input": 50,
+        "logged_raw_value": 50,
+        "model_delta_from_policy": 0,
+        "request_id": "R1",
+        "requested_at": 602,
+        "semantic_key_verified": true
+      },
+      {
+        "absent_log_fields": [],
+        "after_deadline_source_versions": [],
+        "comparisons": {
+          "policy_full_match": false,
+          "policy_numeric_match": false,
+          "policy_provenance_match": false,
+          "policy_to_store": true,
+          "raw_policy_numeric_match": false,
+          "raw_source_numeric_match": false,
+          "source_to_policy": true,
+          "store_to_cache": false,
+          "trace_numeric_match": true,
+          "trace_provenance_match": true,
+          "trace_to_log": true
+        },
+        "expected_cache": {
+          "captured_at": 601,
+          "history_known": true,
+          "record": {
+            "revision": 1,
+            "source_cutoff": 600,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                1
+              ]
+            ],
+            "value": 50
+          }
+        },
+        "expected_logged_model_input_from_cache": 50,
+        "expected_model_input": 45,
+        "expected_policy": {
+          "revision": 2,
+          "source_cutoff": 605,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 45
+        },
+        "expected_source": {
+          "history_known": true,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 45
+        },
+        "expected_store": {
+          "history_known": true,
+          "record": {
+            "revision": 2,
+            "source_cutoff": 605,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 45
+          }
+        },
+        "flags": [
+          "cache_lag",
+          "numeric_mismatch"
+        ],
+        "lag_attribution_scope": "independent publication/store/cache trace, not numeric differences",
+        "logged": {
+          "cache_capture_at": 601,
+          "contracts": {
+            "policy_contract_version": "policy-v1",
+            "preprocessing_id": "identity-v1",
+            "publication_schema_version": "publication-v1",
+            "serving_log_schema_version": "serving-log-v1",
+            "source_schema_version": "source-v1"
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "fallback_value": null,
+          "feature_missing": false,
+          "key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "model_input": 50,
+          "preprocessing_id": "identity-v1",
+          "raw_value": 50,
+          "value_key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "value_revision": 1,
+          "value_source_cutoff": 600,
+          "value_source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ]
+        },
+        "logged_cache_capture_at": 601,
+        "logged_fallback_reason": null,
+        "logged_fallback_used": false,
+        "logged_fallback_value": null,
+        "logged_feature_missing": false,
+        "logged_model_input": 50,
+        "logged_raw_value": 50,
+        "model_delta_from_policy": 5,
+        "request_id": "R2",
+        "requested_at": 606,
+        "semantic_key_verified": true
+      },
+      {
+        "absent_log_fields": [],
+        "after_deadline_source_versions": [],
+        "comparisons": {
+          "policy_full_match": false,
+          "policy_numeric_match": false,
+          "policy_provenance_match": false,
+          "policy_to_store": false,
+          "raw_policy_numeric_match": false,
+          "raw_source_numeric_match": false,
+          "source_to_policy": true,
+          "store_to_cache": false,
+          "trace_numeric_match": true,
+          "trace_provenance_match": true,
+          "trace_to_log": true
+        },
+        "expected_cache": {
+          "captured_at": 601,
+          "history_known": true,
+          "record": {
+            "revision": 1,
+            "source_cutoff": 600,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                1
+              ]
+            ],
+            "value": 50
+          }
+        },
+        "expected_logged_model_input_from_cache": 50,
+        "expected_model_input": 85,
+        "expected_policy": {
+          "revision": 3,
+          "source_cutoff": 607,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 85
+        },
+        "expected_source": {
+          "history_known": true,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 85
+        },
+        "expected_store": {
+          "history_known": true,
+          "record": {
+            "revision": 2,
+            "source_cutoff": 605,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 45
+          }
+        },
+        "flags": [
+          "materialization_lag",
+          "cache_lag",
+          "numeric_mismatch"
+        ],
+        "lag_attribution_scope": "independent publication/store/cache trace, not numeric differences",
+        "logged": {
+          "cache_capture_at": 601,
+          "contracts": {
+            "policy_contract_version": "policy-v1",
+            "preprocessing_id": "identity-v1",
+            "publication_schema_version": "publication-v1",
+            "serving_log_schema_version": "serving-log-v1",
+            "source_schema_version": "source-v1"
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "fallback_value": null,
+          "feature_missing": false,
+          "key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "model_input": 50,
+          "preprocessing_id": "identity-v1",
+          "raw_value": 50,
+          "value_key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "value_revision": 1,
+          "value_source_cutoff": 600,
+          "value_source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "C",
+              1
+            ]
+          ]
+        },
+        "logged_cache_capture_at": 601,
+        "logged_fallback_reason": null,
+        "logged_fallback_used": false,
+        "logged_fallback_value": null,
+        "logged_feature_missing": false,
+        "logged_model_input": 50,
+        "logged_raw_value": 50,
+        "model_delta_from_policy": -35,
+        "request_id": "R3",
+        "requested_at": 608,
+        "semantic_key_verified": true
+      },
+      {
+        "absent_log_fields": [],
+        "after_deadline_source_versions": [],
+        "comparisons": {
+          "policy_full_match": true,
+          "policy_numeric_match": true,
+          "policy_provenance_match": true,
+          "policy_to_store": true,
+          "raw_policy_numeric_match": true,
+          "raw_source_numeric_match": true,
+          "source_to_policy": true,
+          "store_to_cache": true,
+          "trace_numeric_match": true,
+          "trace_provenance_match": true,
+          "trace_to_log": true
+        },
+        "expected_cache": {
+          "captured_at": 609,
+          "history_known": true,
+          "record": {
+            "revision": 3,
+            "source_cutoff": 607,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "B",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 85
+          }
+        },
+        "expected_logged_model_input_from_cache": 85,
+        "expected_model_input": 85,
+        "expected_policy": {
+          "revision": 3,
+          "source_cutoff": 607,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 85
+        },
+        "expected_source": {
+          "history_known": true,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 85
+        },
+        "expected_store": {
+          "history_known": true,
+          "record": {
+            "revision": 3,
+            "source_cutoff": 607,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "B",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 85
+          }
+        },
+        "flags": [],
+        "lag_attribution_scope": "independent publication/store/cache trace, not numeric differences",
+        "logged": {
+          "cache_capture_at": 609,
+          "contracts": {
+            "policy_contract_version": "policy-v1",
+            "preprocessing_id": "identity-v1",
+            "publication_schema_version": "publication-v1",
+            "serving_log_schema_version": "serving-log-v1",
+            "source_schema_version": "source-v1"
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "fallback_value": null,
+          "feature_missing": false,
+          "key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "model_input": 85,
+          "preprocessing_id": "identity-v1",
+          "raw_value": 85,
+          "value_key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "value_revision": 3,
+          "value_source_cutoff": 607,
+          "value_source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ]
+        },
+        "logged_cache_capture_at": 609,
+        "logged_fallback_reason": null,
+        "logged_fallback_used": false,
+        "logged_fallback_value": null,
+        "logged_feature_missing": false,
+        "logged_model_input": 85,
+        "logged_raw_value": 85,
+        "model_delta_from_policy": 0,
+        "request_id": "R4",
+        "requested_at": 610,
+        "semantic_key_verified": true
+      },
+      {
+        "absent_log_fields": [],
+        "after_deadline_source_versions": [
+          [
+            "E",
+            1
+          ]
+        ],
+        "comparisons": {
+          "policy_full_match": true,
+          "policy_numeric_match": true,
+          "policy_provenance_match": true,
+          "policy_to_store": true,
+          "raw_policy_numeric_match": true,
+          "raw_source_numeric_match": false,
+          "source_to_policy": false,
+          "store_to_cache": true,
+          "trace_numeric_match": true,
+          "trace_provenance_match": true,
+          "trace_to_log": true
+        },
+        "expected_cache": {
+          "captured_at": 609,
+          "history_known": true,
+          "record": {
+            "revision": 3,
+            "source_cutoff": 607,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "B",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 85
+          }
+        },
+        "expected_logged_model_input_from_cache": 85,
+        "expected_model_input": 85,
+        "expected_policy": {
+          "revision": 3,
+          "source_cutoff": 607,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 85
+        },
+        "expected_source": {
+          "history_known": true,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ],
+            [
+              "E",
+              1
+            ]
+          ],
+          "value": 100
+        },
+        "expected_store": {
+          "history_known": true,
+          "record": {
+            "revision": 3,
+            "source_cutoff": 607,
+            "source_versions": [
+              [
+                "A",
+                1
+              ],
+              [
+                "B",
+                1
+              ],
+              [
+                "C",
+                2
+              ]
+            ],
+            "value": 85
+          }
+        },
+        "flags": [
+          "source_after_deadline"
+        ],
+        "lag_attribution_scope": "independent publication/store/cache trace, not numeric differences",
+        "logged": {
+          "cache_capture_at": 609,
+          "contracts": {
+            "policy_contract_version": "policy-v1",
+            "preprocessing_id": "identity-v1",
+            "publication_schema_version": "publication-v1",
+            "serving_log_schema_version": "serving-log-v1",
+            "source_schema_version": "source-v1"
+          },
+          "fallback_reason": null,
+          "fallback_used": false,
+          "fallback_value": null,
+          "feature_missing": false,
+          "key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "model_input": 85,
+          "preprocessing_id": "identity-v1",
+          "raw_value": 85,
+          "value_key": {
+            "entity": "C1",
+            "feature_definition_id": "known_spend_fixed_window_v1",
+            "policy_id": "immediate_then_correct",
+            "window_end": 600,
+            "window_start": 540
+          },
+          "value_revision": 3,
+          "value_source_cutoff": 607,
+          "value_source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ]
+        },
+        "logged_cache_capture_at": 609,
+        "logged_fallback_reason": null,
+        "logged_fallback_used": false,
+        "logged_fallback_value": null,
+        "logged_feature_missing": false,
+        "logged_model_input": 85,
+        "logged_raw_value": 85,
+        "model_delta_from_policy": 0,
+        "request_id": "R5",
+        "requested_at": 620,
+        "semantic_key_verified": true
+      }
+    ],
+    "scope": "Synthetic teaching fixture; these are not production metrics.",
+    "total_requests": 6,
+    "window_semantics": "fixed half-open [540,600); request time does not move this key"
+  },
+  "metrics": {
+    "fallback": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 1,
+      "rate": 0.16666666666666666,
+      "unknown": 0
+    },
+    "full_model_parity": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 3,
+      "rate": 0.5,
+      "unknown": 0
+    },
+    "missing": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 1,
+      "rate": 0.16666666666666666,
+      "unknown": 0
+    },
+    "model_parity": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 3,
+      "rate": 0.5,
+      "unknown": 0
+    },
+    "raw_parity": {
+      "denominator": 5,
+      "excluded": 1,
+      "numerator": 3,
+      "rate": 0.6,
+      "unknown": 0
+    }
+  },
+  "publication_timing": [
+    {
+      "publication_age": null,
+      "publication_lag": null,
+      "request_id": "R0",
+      "status": "NO_VALUE"
+    },
+    {
+      "publication_age": 2,
+      "publication_lag": 0,
+      "request_id": "R1",
+      "status": "KNOWN"
+    },
+    {
+      "publication_age": 6,
+      "publication_lag": 5,
+      "request_id": "R2",
+      "status": "KNOWN"
+    },
+    {
+      "publication_age": 8,
+      "publication_lag": 7,
+      "request_id": "R3",
+      "status": "KNOWN"
+    },
+    {
+      "publication_age": 3,
+      "publication_lag": 0,
+      "request_id": "R4",
+      "status": "KNOWN"
+    },
+    {
+      "publication_age": 13,
+      "publication_lag": 0,
+      "request_id": "R5",
+      "status": "KNOWN"
+    }
+  ],
+  "publication_timing_coverage": {
+    "declared_requests": 6,
+    "excluded_no_value": 1,
+    "measurable": 5,
+    "unknown": 0
+  },
+  "scope": "Synthetic logs and independent reconstruction; no real serving observations."
+}

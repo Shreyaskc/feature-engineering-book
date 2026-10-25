@@ -1,0 +1,117 @@
+{
+  "after_deadline_source_versions": [
+    [
+      "E",
+      1
+    ]
+  ],
+  "audit_at": 620,
+  "audit_source_value": 105,
+  "audit_source_versions": [
+    [
+      "A",
+      2
+    ],
+    [
+      "B",
+      1
+    ],
+    [
+      "C",
+      2
+    ],
+    [
+      "E",
+      1
+    ],
+    [
+      "F",
+      1
+    ]
+  ],
+  "case": "challenge",
+  "closed_policy_source_versions": [
+    [
+      "A",
+      2
+    ],
+    [
+      "B",
+      1
+    ],
+    [
+      "C",
+      2
+    ],
+    [
+      "F",
+      1
+    ]
+  ],
+  "closed_policy_value": 90,
+  "deadline_inclusive": 610,
+  "difference": 15,
+  "explanation": "Later source evidence is retained for audit; it does not reopen the closed policy output.",
+  "fixed_window": [
+    540,
+    600
+  ],
+  "rolling_historical_rows": [
+    {
+      "customer_id": "C1",
+      "decision_at": 600,
+      "definition_id": "known_spend_60m_v1",
+      "history_known": true,
+      "missing": false,
+      "row_id": "D1",
+      "source_cutoff": 600,
+      "source_versions": [
+        [
+          "A",
+          1
+        ],
+        [
+          "C",
+          1
+        ]
+      ],
+      "value": 50,
+      "window_end": 600,
+      "window_start": 540
+    },
+    {
+      "customer_id": "C1",
+      "decision_at": 610,
+      "definition_id": "known_spend_60m_v1",
+      "history_known": true,
+      "missing": false,
+      "row_id": "D2",
+      "source_cutoff": 610,
+      "source_versions": [
+        [
+          "A",
+          2
+        ],
+        [
+          "B",
+          1
+        ],
+        [
+          "C",
+          2
+        ],
+        [
+          "D",
+          1
+        ],
+        [
+          "F",
+          1
+        ]
+      ],
+      "value": 100,
+      "window_end": 610,
+      "window_start": 550
+    }
+  ]
+}

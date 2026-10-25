@@ -1,0 +1,38 @@
+[
+  {
+    "id": "9.1_base_trace",
+    "stdout": "raw: [None, 50, 50, 50, 85, 85]\nmodel: [0, 50, 50, 50, 85, 85]\npolicy: [50, 50, 45, 85, 85, 85]\nsource: [50, 50, 45, 85, 85, 100]\n"
+  },
+  {
+    "id": "9.2_missingness",
+    "stdout": "missing 1/6 unknown 0\nfallback 1/6 unknown 0\n"
+  },
+  {
+    "id": "9.3_parity",
+    "stdout": "raw_parity 3/5 excluded 1 unknown 0\nmodel_parity 3/6 excluded 0 unknown 0\nfull_model_parity 3/6 excluded 0 unknown 0\n"
+  },
+  {
+    "id": "9.4_age_and_lag",
+    "stdout": "request age lag\nR0 None None\nR1 2 0\nR2 6 5\nR3 8 7\nR4 3 0\nR5 13 0\nR5: old publication, zero policy lag\n"
+  },
+  {
+    "id": "9.5_snapshot_hypothesis",
+    "stdout": "snapshots: [50, 45, 85]\nreplacement: 85\naddition: 180\n"
+  },
+  {
+    "id": "9.6_controlled_replay",
+    "stdout": "observation 0/4\nbaseline_replay 4/4\ncandidate_replay 0/4\ncohort: [('C0', 621), ('C1', 622), ('C2', 623), ('C3', 624)]\n"
+  },
+  {
+    "id": "9.7_decision",
+    "stdout": "contract: FAIL\naction: ROLLBACK\nblockers: []\nexternal action: False\n"
+  },
+  {
+    "id": "9.8_evidence_hold",
+    "stdout": "contract: FAIL\naction: HOLD\nblockers: ['artifact:recovery_release:EXPIRED']\n"
+  },
+  {
+    "id": "9.9_recovery",
+    "stdout": "outcome: RECOVERED\nphase: fresh_post_restore_replay\nraw: [85, 85, 85, 85]\nmissing 0/4\nfallback 0/4\nfull_model_parity 4/4\nlineage 4/4\n"
+  }
+]

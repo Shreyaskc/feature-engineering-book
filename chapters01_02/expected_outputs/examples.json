@@ -1,0 +1,66 @@
+{
+  "base_selected_at_600": [
+    {
+      "amount": 20,
+      "event_id": "A",
+      "revision": 1
+    },
+    {
+      "amount": 30,
+      "event_id": "C",
+      "revision": 1
+    }
+  ],
+  "chapter_one": {
+    "baseline_at_600": 50,
+    "known_empty_C9": 0,
+    "lower_boundary_K_540": 55,
+    "unknown_relevant_history": null,
+    "upper_boundary_L_600": 50
+  },
+  "clock": "integer synthetic minutes",
+  "decision": {
+    "at": 600,
+    "customer_id": "C1",
+    "id": "D1"
+  },
+  "deletion_extension": {
+    "fixed_540_600_known_at_620": 60,
+    "original_at_600": 50,
+    "rolling_at_610": 95
+  },
+  "exercises": {
+    "K_at_539": 50,
+    "L_at_599_available_600": 57,
+    "restoration_fixed_window_by_cutoff": {
+      "600": 50,
+      "610": 85,
+      "619": 60,
+      "620": 88
+    },
+    "window_width_30_at_600": 30
+  },
+  "history_known": true,
+  "identity": {
+    "base_deliveries": 5,
+    "base_source_versions": 5,
+    "identical_batch_is_idempotent": true,
+    "retried_deliveries": 6,
+    "retried_source_versions": 5,
+    "retry_preserves_available_at": 551,
+    "retry_preserves_original_value": 50,
+    "reversed_replay_is_identical": true
+  },
+  "restoration_extension": {
+    "allow_restore": true,
+    "fixed_540_600_known_at_620": 88,
+    "original_at_600": 50,
+    "rolling_at_610": 95
+  },
+  "schema_version": 1,
+  "units": "nonnegative integer synthetic spend units",
+  "window_comparison": {
+    "fixed_540_600_known_at_610": 85,
+    "rolling_at_610": 95
+  }
+}

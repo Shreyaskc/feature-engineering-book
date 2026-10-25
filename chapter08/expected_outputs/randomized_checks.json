@@ -1,0 +1,33 @@
+{
+  "corpus_sha256": "13612fca026225c5b654bc153a951aa159ac1cc87f77800d2dcdeb457071b1f7",
+  "coverage": {
+    "availability_after_decision": 225,
+    "availability_at_decision": 225,
+    "clock_origin_window": 22,
+    "deletions": 225,
+    "different_availability_revisions": 225,
+    "distinct_delivery_retries": 225,
+    "empty_histories": 15,
+    "equal_availability_revisions": 225,
+    "exact_delivery_replays": 225,
+    "known_history_queries": 960,
+    "lower_boundary": 225,
+    "multiple_customers": 225,
+    "revision_gaps": 225,
+    "unknown_history_queries": 960,
+    "upper_boundary": 225,
+    "zero_amount_upserts": 225
+  },
+  "generated_cases": 240,
+  "metamorphic_comparisons": {
+    "distinct_delivery_retry": 1920,
+    "exact_delivery_replay": 1920,
+    "later_information": 1920,
+    "shuffle": 1920
+  },
+  "original_query_comparisons": 1920,
+  "reference_oracle_comparisons": 9600,
+  "scope": "Finite generated evidence; not exhaustive or a proof.",
+  "seed": 20261005,
+  "status": "passed"
+}

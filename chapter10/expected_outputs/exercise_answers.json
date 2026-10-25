@@ -1,0 +1,274 @@
+{
+  "1_chronology": {
+    "base_rolling": [
+      50,
+      95
+    ],
+    "challenge_baseline": [
+      105,
+      115
+    ],
+    "challenge_publications": [
+      [
+        600,
+        50
+      ],
+      [
+        604,
+        48
+      ],
+      [
+        605,
+        43
+      ],
+      [
+        606,
+        50
+      ],
+      [
+        607,
+        90
+      ]
+    ],
+    "challenge_rolling": [
+      50,
+      100
+    ]
+  },
+  "2_deadline": {
+    "610": {
+      "D2": 115,
+      "audit": 105,
+      "closed": 105
+    },
+    "611": {
+      "D2": 100,
+      "audit": 105,
+      "closed": 90
+    }
+  },
+  "3_full_snapshots": {
+    "contract_pipeline": 90,
+    "snapshot_baseline": 281
+  },
+  "4_replay_and_schema": {
+    "conflict_rejection": "source revision reused with conflicting payload",
+    "deletion_rejection": "serving adapter does not support deletion",
+    "delivery_identity_rejection": "delivery_id reused with conflicting payload",
+    "missing_field_rejection": "record must have exactly ['amount', 'available_at', 'customer_id', 'event_id', 'event_time', 'op', 'revision']",
+    "replay_same": true,
+    "restoration_rejection": "serving adapter does not support restoration"
+  },
+  "5_corruption": {
+    "direct": "artifact content mismatch: improved_dataset.json",
+    "rewritten_sibling_hash": "manifest artifact digests disagree with recomputation"
+  },
+  "6_zero_and_unknown": [
+    {
+      "missing": false,
+      "row_id": "Z1",
+      "source_versions": [],
+      "value": 0
+    },
+    {
+      "missing": true,
+      "row_id": "U1",
+      "source_versions": [],
+      "value": null
+    }
+  ],
+  "7_denominators": {
+    "contract_pipeline": {
+      "fallback": {
+        "denominator": 6,
+        "excluded": 0,
+        "numerator": 1,
+        "population": 6,
+        "rate": 0.16666666666666666
+      },
+      "historical": {
+        "denominator": 3,
+        "excluded": 1,
+        "numerator": 3,
+        "population": 4,
+        "rate": 1.0
+      },
+      "missing": {
+        "denominator": 6,
+        "excluded": 0,
+        "numerator": 1,
+        "population": 6,
+        "rate": 0.16666666666666666
+      },
+      "online": {
+        "denominator": 5,
+        "excluded": 1,
+        "numerator": 5,
+        "population": 6,
+        "rate": 1.0
+      }
+    },
+    "snapshot_baseline": {
+      "fallback": {
+        "denominator": 6,
+        "excluded": 0,
+        "numerator": 1,
+        "population": 6,
+        "rate": 0.16666666666666666
+      },
+      "historical": {
+        "denominator": 3,
+        "excluded": 1,
+        "numerator": 1,
+        "population": 4,
+        "rate": 0.3333333333333333
+      },
+      "missing": {
+        "denominator": 6,
+        "excluded": 0,
+        "numerator": 1,
+        "population": 6,
+        "rate": 0.16666666666666666
+      },
+      "online": {
+        "denominator": 5,
+        "excluded": 1,
+        "numerator": 1,
+        "population": 6,
+        "rate": 0.2
+      }
+    }
+  },
+  "8_audit_explanation": {
+    "base": {
+      "Q5": {
+        "consumer_inputs": {
+          "publication_revisions": [
+            3
+          ],
+          "source_cutoff": 607,
+          "source_versions": [
+            [
+              "A",
+              1
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ]
+          ],
+          "value": 85
+        },
+        "contracts": {
+          "policy_contract_version": "policy-v1",
+          "preprocessing_id": "identity-v1",
+          "publication_schema_version": "publication-v1",
+          "serving_log_schema_version": "serving-log-v1",
+          "source_schema_version": "source-v1"
+        },
+        "fallback_used": false,
+        "fallback_value": null,
+        "feature_missing": false,
+        "implementation": "contract_pipeline",
+        "key": {
+          "entity": "C1",
+          "feature_definition_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "window_end": 600,
+          "window_start": 540
+        },
+        "latest_input_published_at": 607,
+        "lookup_input": 85,
+        "policy_revision": 3,
+        "policy_value": 85,
+        "raw_value": 85,
+        "request_id": "Q5",
+        "requested_at": 620,
+        "returned_publication_revision": 3,
+        "returned_published_at": 607,
+        "schedule": "immediate_publication_visibility"
+      },
+      "after_deadline_source_versions": [
+        [
+          "E",
+          1
+        ]
+      ],
+      "audit_source_value": 100,
+      "closed_policy_value": 85,
+      "difference": 15,
+      "explanation": "Later source evidence is retained for audit; it does not reopen the closed policy output."
+    },
+    "challenge": {
+      "Q5": {
+        "consumer_inputs": {
+          "publication_revisions": [
+            5
+          ],
+          "source_cutoff": 607,
+          "source_versions": [
+            [
+              "A",
+              2
+            ],
+            [
+              "B",
+              1
+            ],
+            [
+              "C",
+              2
+            ],
+            [
+              "F",
+              1
+            ]
+          ],
+          "value": 90
+        },
+        "contracts": {
+          "policy_contract_version": "policy-v1",
+          "preprocessing_id": "identity-v1",
+          "publication_schema_version": "publication-v1",
+          "serving_log_schema_version": "serving-log-v1",
+          "source_schema_version": "source-v1"
+        },
+        "fallback_used": false,
+        "fallback_value": null,
+        "feature_missing": false,
+        "implementation": "contract_pipeline",
+        "key": {
+          "entity": "C1",
+          "feature_definition_id": "known_spend_fixed_window_v1",
+          "policy_id": "immediate_then_correct",
+          "window_end": 600,
+          "window_start": 540
+        },
+        "latest_input_published_at": 607,
+        "lookup_input": 90,
+        "policy_revision": 5,
+        "policy_value": 90,
+        "raw_value": 90,
+        "request_id": "Q5",
+        "requested_at": 620,
+        "returned_publication_revision": 5,
+        "returned_published_at": 607,
+        "schedule": "immediate_publication_visibility"
+      },
+      "after_deadline_source_versions": [
+        [
+          "E",
+          1
+        ]
+      ],
+      "audit_source_value": 105,
+      "closed_policy_value": 90,
+      "difference": 15,
+      "explanation": "Later source evidence is retained for audit; it does not reopen the closed policy output."
+    }
+  }
+}

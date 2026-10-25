@@ -1,0 +1,26 @@
+# The original decision
+
+Generated view; the canonical source remains authoritative.
+
+Listing ID: `ch1_contract`. Chapter: 1. Language: python.
+
+Canonical source: [chapters01_02/printed_snippets.json](../../chapters01_02/printed_snippets.json).
+
+Run from the repository root: `.venv/bin/python -B verify_all.py --chapter 01`. The root command checks the lesson and its listing expectations in clean copies.
+
+```python
+from foundations_lab import load_fixture, spend
+
+ledger = load_fixture()
+print(spend(ledger.history, "C1", decision_at=600,
+            history_known=True))
+print(spend(ledger.history, "C1", decision_at=610,
+            history_known=True))
+```
+
+Expected stdout:
+
+```text
+50
+95
+```

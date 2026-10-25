@@ -1,0 +1,56 @@
+[
+  {
+    "code": "from parity_lab import build_fixture\ntrace, logs = build_fixture()\npolicy = [trace.policy_at(r.requested_at).value for r in logs]\nsource = [trace.source.reference(trace.key, r.requested_at).value\n          for r in logs]\nprint(\"raw:\", [r.raw_value for r in logs])\nprint(\"model:\", [r.model_input for r in logs])\nprint(\"policy:\", policy)\nprint(\"source:\", source)\n",
+    "id": "9.1_base_trace",
+    "stdout": "raw: [None, 50, 50, 50, 85, 85]\nmodel: [0, 50, 50, 50, 85, 85]\npolicy: [50, 50, 45, 85, 85, 85]\nsource: [50, 50, 45, 85, 85, 100]\n",
+    "title": "Preserve the six base observations"
+  },
+  {
+    "code": "from operations_lab import base_report\nmetrics = base_report()[\"metrics\"]\nfor name in (\"missing\", \"fallback\"):\n    m = metrics[name]\n    fraction = f'{m[\"numerator\"]}/{m[\"denominator\"]}'\n    print(name, fraction, \"unknown\", m[\"unknown\"])\n",
+    "id": "9.2_missingness",
+    "stdout": "missing 1/6 unknown 0\nfallback 1/6 unknown 0\n",
+    "title": "Distinguish a missing feature from missing evidence"
+  },
+  {
+    "code": "from operations_lab import base_report\nmetrics = base_report()[\"metrics\"]\nfor name in (\"raw_parity\", \"model_parity\", \"full_model_parity\"):\n    m = metrics[name]\n    fraction = f'{m[\"numerator\"]}/{m[\"denominator\"]}'\n    print(name, fraction, \"excluded\", m[\"excluded\"],\n          \"unknown\", m[\"unknown\"])\n",
+    "id": "9.3_parity",
+    "stdout": "raw_parity 3/5 excluded 1 unknown 0\nmodel_parity 3/6 excluded 0 unknown 0\nfull_model_parity 3/6 excluded 0 unknown 0\n",
+    "title": "Choose the parity denominator explicitly"
+  },
+  {
+    "code": "from operations_lab import base_report\nrows = base_report()[\"publication_timing\"]\nprint(\"request age lag\")\nfor row in rows:\n    print(row[\"request_id\"], row[\"publication_age\"],\n          row[\"publication_lag\"])\nprint(\"R5: old publication, zero policy lag\")\n",
+    "id": "9.4_age_and_lag",
+    "stdout": "request age lag\nR0 None None\nR1 2 0\nR2 6 5\nR3 8 7\nR4 3 0\nR5 13 0\nR5: old publication, zero policy lag\n",
+    "title": "Compare publication age with policy publication lag"
+  },
+  {
+    "code": "from operations_lab import build_change_packet, consume_snapshots\npacket = build_change_packet()\nsnapshots = packet.trace.publications\nprint(\"snapshots:\", [p.value for p in snapshots])\nprint(\"replacement:\", consume_snapshots(snapshots, \"replace\"))\nprint(\"addition:\", consume_snapshots(snapshots, \"add\"))\n",
+    "id": "9.5_snapshot_hypothesis",
+    "stdout": "snapshots: [50, 45, 85]\nreplacement: 85\naddition: 180\n",
+    "title": "Reproduce the full-snapshot arithmetic counterexample"
+  },
+  {
+    "code": "from operations_lab import build_change_packet, decide\npacket = build_change_packet()\nreport = decide(packet)\nfor name in (\"observation\", \"baseline_replay\", \"candidate_replay\"):\n    m = report[name][\"metrics\"][\"full_model_parity\"]\n    print(name, f'{m[\"numerator\"]}/{m[\"denominator\"]}')\nprint(\"cohort:\", list(packet.cohort))\n",
+    "id": "9.6_controlled_replay",
+    "stdout": "observation 0/4\nbaseline_replay 4/4\ncandidate_replay 0/4\ncohort: [('C0', 621), ('C1', 622), ('C2', 623), ('C3', 624)]\n",
+    "title": "Compare the declared incident cohort"
+  },
+  {
+    "code": "from operations_lab import build_change_packet, decide\nreport = decide(build_change_packet())\nprint(\"contract:\", report[\"contract\"])\nprint(\"action:\", report[\"action\"])\nprint(\"blockers:\", report[\"blockers\"])\nprint(\"external action: False\")\n",
+    "id": "9.7_decision",
+    "stdout": "contract: FAIL\naction: ROLLBACK\nblockers: []\nexternal action: False\n",
+    "title": "Require evidence before recommending rollback"
+  },
+  {
+    "code": "from dataclasses import replace\nfrom operations_lab import build_change_packet, decide\npacket = build_change_packet()\ninventory = tuple(\n    replace(a, expires_at=625) if a.artifact_id == \"recovery_release\"\n    else a for a in packet.inventory)\nreport = decide(replace(packet, inventory=inventory))\nprint(\"contract:\", report[\"contract\"])\nprint(\"action:\", report[\"action\"])\nprint(\"blockers:\", report[\"blockers\"])\n",
+    "id": "9.8_evidence_hold",
+    "stdout": "contract: FAIL\naction: HOLD\nblockers: ['artifact:recovery_release:EXPIRED']\n",
+    "title": "Hold when recovery evidence expires"
+  },
+  {
+    "code": "from operations_lab import build_change_packet, simulate_recovery\nreport = simulate_recovery(build_change_packet())\nprint(\"outcome:\", report[\"outcome\"])\nprint(\"phase:\", report[\"phase\"])\nprint(\"raw:\", report[\"raw_values\"])\nfor name in (\"missing\", \"fallback\", \"full_model_parity\", \"lineage\"):\n    m = report[\"checks\"][\"metrics\"][name]\n    print(name, f'{m[\"numerator\"]}/{m[\"denominator\"]}')\n",
+    "id": "9.9_recovery",
+    "stdout": "outcome: RECOVERED\nphase: fresh_post_restore_replay\nraw: [85, 85, 85, 85]\nmissing 0/4\nfallback 0/4\nfull_model_parity 4/4\nlineage 4/4\n",
+    "title": "Verify a fresh local recovery replay"
+  }
+]

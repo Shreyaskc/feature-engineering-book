@@ -1,0 +1,10 @@
+{
+  "destination": "parity_lab.py",
+  "modifications": "none; byte-for-byte copy",
+  "sha256": "1bd7fa504b465f1005cef7715ff7cd71a706e593fb0fa5d3308c6b30ad9a251e",
+  "source_archive": "Production Feature Engineering Chapter 6 Lab.zip",
+  "source_archive_sha256": "fa857d69b5e4af6d28e71dacadc042fee90ba730440848ad9d055a257d526087",
+  "source_member": "lab/parity_lab.py",
+  "source_path": "book1-chapter6/lab/parity_lab.py",
+  "source_revision": "2026-10-05-metadata-v2"
+}

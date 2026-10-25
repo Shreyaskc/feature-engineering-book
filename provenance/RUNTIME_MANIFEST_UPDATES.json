@@ -1,0 +1,12 @@
+{
+  "scope": "Code identities required to compare current synthetic lab manifests with the curated baseline. No execution log or review workflow is distributed.",
+  "runtime_manifest_code_updates": [
+    {
+      "folder": "chapter06",
+      "source_file": "randomized_checks.py",
+      "before_sha256": "bd929f6d0dd150c5ef174640011e0a25ed7ccaae2de75b6bfc58f6a28ff16d96",
+      "after_sha256": "d7844077c4052fe7f596fbf2d9dcb1ab22969aaa7af815f2e06071667c03084a",
+      "reason": "Complete independent key/contracts/publication-time comparisons and exogenous expected delivery timing; no feature values or expected semantic snapshot changed."
+    }
+  ]
+}

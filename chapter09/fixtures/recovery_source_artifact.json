@@ -1,0 +1,6 @@
+{
+  "consumer_mode": "replace",
+  "consumer_python_source": "def consume_snapshots(publications: Iterable[PublishedRevision], mode: str) -> int:\n    \"\"\"One delivery of each ordered full snapshot; addition is the deliberate bug.\n\n    This is an arithmetic counterexample, not a retry/order/storage protocol.\n    \"\"\"\n    rows = tuple(publications)\n    if mode not in {\"replace\", \"add\"}:\n        raise ValueError(\"unsupported consumer mode\")\n    if not rows or any(p.key != rows[0].key for p in rows):\n        raise ValueError(\"require snapshots of one feature key\")\n    if [p.revision for p in rows] != sorted({p.revision for p in rows}):\n        raise ValueError(\"this experiment requires ordered unique full snapshots\")\n    return rows[-1].value if mode == \"replace\" else sum(p.value for p in rows)\n",
+  "implementation_contract": "chapter9-local-consumer-v1",
+  "release_id": "replacement-v1"
+}

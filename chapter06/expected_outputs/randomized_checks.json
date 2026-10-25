@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "cache_snapshot_comparisons": 2990,
+    "generated_cases": 128,
+    "publication_sequence_comparisons": 128,
+    "reference_comparisons": 3804,
+    "reordered_source_comparisons": 384,
+    "sink_monotonic_transitions_checked": 95,
+    "store_snapshot_comparisons": 2990
+  },
+  "seed": 20261003,
+  "status": "passed"
+}

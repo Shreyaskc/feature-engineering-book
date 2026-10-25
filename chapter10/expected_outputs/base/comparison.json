@@ -1,0 +1,129 @@
+{
+  "decision_ids": [
+    "D1",
+    "D2",
+    "Z1",
+    "U1"
+  ],
+  "implementations": {
+    "contract_pipeline": {
+      "historical": {
+        "complete_row_parity": {
+          "denominator": 4,
+          "excluded": 0,
+          "numerator": 4,
+          "population": 4,
+          "rate": 1.0
+        },
+        "known_zero": {
+          "denominator": 4,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 4,
+          "rate": 0.25
+        },
+        "missing": {
+          "denominator": 4,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 4,
+          "rate": 0.25
+        },
+        "numeric_parity": {
+          "denominator": 3,
+          "excluded": 1,
+          "numerator": 3,
+          "population": 4,
+          "rate": 1.0
+        }
+      },
+      "online": {
+        "fallback": {
+          "denominator": 6,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 6,
+          "rate": 0.16666666666666666
+        },
+        "missing": {
+          "denominator": 6,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 6,
+          "rate": 0.16666666666666666
+        },
+        "raw_policy_parity": {
+          "denominator": 5,
+          "excluded": 1,
+          "numerator": 5,
+          "population": 6,
+          "rate": 1.0
+        }
+      }
+    },
+    "snapshot_baseline": {
+      "historical": {
+        "complete_row_parity": {
+          "denominator": 4,
+          "excluded": 0,
+          "numerator": 0,
+          "population": 4,
+          "rate": 0.0
+        },
+        "known_zero": {
+          "denominator": 4,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 4,
+          "rate": 0.25
+        },
+        "missing": {
+          "denominator": 4,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 4,
+          "rate": 0.25
+        },
+        "numeric_parity": {
+          "denominator": 3,
+          "excluded": 1,
+          "numerator": 1,
+          "population": 4,
+          "rate": 0.3333333333333333
+        }
+      },
+      "online": {
+        "fallback": {
+          "denominator": 6,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 6,
+          "rate": 0.16666666666666666
+        },
+        "missing": {
+          "denominator": 6,
+          "excluded": 0,
+          "numerator": 1,
+          "population": 6,
+          "rate": 0.16666666666666666
+        },
+        "raw_policy_parity": {
+          "denominator": 5,
+          "excluded": 1,
+          "numerator": 1,
+          "population": 6,
+          "rate": 0.2
+        }
+      }
+    }
+  },
+  "request_ids": [
+    "Q0",
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5"
+  ],
+  "scope": "Finite deterministic fixture checks; no statistical or ML claim"
+}

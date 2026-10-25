@@ -1,0 +1,98 @@
+{
+  "exercise_1": {
+    "fallback": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 1,
+      "rate": 0.16666666666666666,
+      "unknown": 0
+    },
+    "missing": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 1,
+      "rate": 0.16666666666666666,
+      "unknown": 0
+    },
+    "model_parity": {
+      "denominator": 6,
+      "excluded": 0,
+      "numerator": 3,
+      "rate": 0.5,
+      "unknown": 0
+    },
+    "raw_parity": {
+      "denominator": 5,
+      "excluded": 1,
+      "numerator": 3,
+      "rate": 0.6,
+      "unknown": 0
+    }
+  },
+  "exercise_2": {
+    "R3": {
+      "publication_age": 8,
+      "publication_lag": 7,
+      "request_id": "R3",
+      "status": "KNOWN"
+    },
+    "R3_latest_publication_age": 1,
+    "R5": {
+      "publication_age": 13,
+      "publication_lag": 0,
+      "request_id": "R5",
+      "status": "KNOWN"
+    },
+    "age_alone_establishes_staleness": false
+  },
+  "exercise_3": {
+    "action": "HOLD",
+    "declared_requests": 4,
+    "healthy_complete_cohort": false,
+    "model_parity": {
+      "denominator": 3,
+      "excluded": 0,
+      "numerator": 3,
+      "rate": 1.0,
+      "unknown": 1
+    }
+  },
+  "exercise_4": {
+    "addition": 180,
+    "replacement": 85,
+    "scope": "one fixed feature-cell counterexample; not production causal proof"
+  },
+  "exercise_5": {
+    "action": "HOLD",
+    "baseline_full_parity": {
+      "denominator": 4,
+      "excluded": 0,
+      "numerator": 0,
+      "rate": 0.0,
+      "unknown": 0
+    },
+    "baseline_reproduced": false,
+    "candidate_control_equal_values": true
+  },
+  "exercise_6": {
+    "action": "HOLD",
+    "contract": "FAIL",
+    "recovery_artifact": "EXPIRED"
+  },
+  "exercise_7": {
+    "decision_at625": "ROLLBACK",
+    "recovery_at626": "HOLD"
+  },
+  "exercise_8": {
+    "availability_assumption": "authorized access to retained diagnostics and recovery artifact throughout recovery",
+    "distinct_feature_cells": 1,
+    "external_action": false,
+    "observations": 4,
+    "outcome": "RECOVERED",
+    "production_recovery_proved": false,
+    "required_real_checks": [
+      "actual post-change request observations under the restored release",
+      "intended store/cache and preprocessing path without unintended fallback"
+    ]
+  }
+}
